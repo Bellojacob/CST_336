@@ -4,38 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team 3</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Team 3</h1>
+        <h1 id="title">Team 3</h1>
         <hr>
-        <div>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+        <div id="navBar">
+            <a class="items" href="index.html">Home</a>
+            <a class="items" href="about.html">About</a>
+            <a class="items" href="contact.html">Contact</a>
         </div>
     </header>
 
     <main>
-        <div>
-            <img src="images/JacobBelloPortrait.jpg" alt="Jacob Bello" width="10%">
-            <h2>Jacob</h2>
-        </div>
 
-        <div>
-            <img src="images/IMG_9732.jpg" alt="Kassandra" width="10%">
-            <h2>Kassandra</h2>
-        </div>
+        <div id="imgContainer">
+            <figure>
+            <img class="portraits" src="images/JacobBelloPortrait.jpg" alt="Jacob Bello" >
+            <figcaption class="name">Jacob</figcaption>
+        </figure>
+            
+            <figure>
+            <img class="portraits" src="images/IMG_9732.jpg" alt="Kassandra" >
+            <figcaption class="name">Kassandra</figcaption>
+        </figure>
+        
 
-        <div>
-            <img src="images/20161009_150948.jpg" alt="Daniel" width="10%">
-            <h2>Daniel</h2>
-        </div>
+            <figure>
+            <img class="portraits" src="images/20161009_150948.jpg" alt="Daniel" >
+            <figcaption class="name">Daniel</figcaption>
+        </figure>
+        
+            <figure>
+            <img class="portraits" src="images/20240302_165447.jpg" alt="Lucy">
+            <figcaption class="name">Lucy</figcaption>
+        </figure>
+        
 
-        <div>
-            <img src="images/20240302_165447.jpg" alt="Lucy" width="10%">
-            <h2>Lucy</h2>
-        </div>
+    </div>
 
     <p>Thank you for visiting out website!</p>
     </main>

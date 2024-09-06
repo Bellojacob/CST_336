@@ -1,0 +1,44 @@
+h1{
+    color: black;
+    background-color: lightblue;
+    text-align: center;
+    width: 75%;
+    border-radius: 50px;
+    margin: 0 auto;
+    /* centers block element */
+    padding: 30px;
+    
+    margin: top 40px;
+    border: dashed 5px red;
+}
+
+span{
+    color: red;
+    font-size: 1.4em;
+    border: 1px dotted black;
+    margin: 10px;
+
+}
+
+.imgOnWebpage{
+    width: 100%;
+    height: 300px;
+    border: 5px solid black;
+    object-fit: cover;
+
+}
+
+figure{
+    width: 30%;
+
+}
+
+#imgContainer{
+    display: flex;
+    justify-content: space-evenly;
+    /* centers content within a flex container */
+}
+
+h1:hover{
+    background-color: pink;
+}
