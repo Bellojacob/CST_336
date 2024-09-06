@@ -1,16 +1,53 @@
+body{
+    margin: 0;
+}
+
 #navBar{
     background-color: black;
-    text-align: center;
-    height: 2em;
+    
+    
     border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding: 10px ;
+}
+
+.items{
+    color: white;
+    text-decoration: none;
+    
+    font-size: 25px;
+    font-family: "Kanit", sans-serif;
+    
+    
+
+    text-align: center;
+}
+
+.items:hover{
+    color: rgb(103, 158, 230);
+}
+
+.items.active{
+    color: #112e50;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
 }
 
 
+main{
+    padding: 4rem 0;
+}
 
 #imgContainer{
     display: flex;
     justify-content: space-evenly;
-    
+    padding-top: 3%;
       
 }
 
@@ -21,17 +58,22 @@
     border: 1px solid black;
     border-radius: 20px;
     object-fit: cover;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
-.items{
-    color: white;
-    text-decoration: none;
-    padding: 1em;
-    font-size: 25px;
-}
+
+
 
 footer{
     text-align: center;
+    font-family: "Kanit", sans-serif;
+    background-color: black;
+    color: white;
+    
+}
+
+#copyrightText{
+    padding-top: 40px;
 }
 
 p{
@@ -41,6 +83,8 @@ p{
 .name{
     text-align: center;
     font-size: 30px;
+    font-family: "Kanit", sans-serif;
+    
 }
 
 #title{
@@ -48,23 +92,47 @@ p{
     font-size: 50px;
     
     color: black;
+    font-family: "Kanit", sans-serif;
+}
+
+#title:hover{
+    color: rgb(103, 158, 230);
 }
 
 .googleForm{
     text-align: center;
+    
+}
+
+#contactForm{
+    width:640px;
+    height: 959px;
+    border: 3px #112e50 solid;
+    border-radius: 10px;
+    
 }
 
 table, th, td{
     border: 1px solid black;
+    width: 40%;
     
 }
 
 #hobbies{
     text-align: center;
+    padding-top: 100px;
+    font-size: 50px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .list{
     list-style: none;
+    font-size: 25px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 
 .myTable{
@@ -72,6 +140,35 @@ table, th, td{
     margin-right: auto;
 }
 
-.otter{
+#otterImg{
     width: 10%;
+    
+    border: 5px solid #112e50;
+    border-radius: 100px;
+    
+}
+
+#headingLink{
+    text-decoration: none;
+}
+
+#quote{
+    font-family: "Indie Flower", cursive;
+    font-size: 30px;
+}
+
+#thankYou{
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 25px;
+}
+
+.tableRow{
+    height: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
