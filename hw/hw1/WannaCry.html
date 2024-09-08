@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worst Computer Viruses</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a class="header" href="index.html"><h1 class="heading">Most Dangerous Viruses</h1></a>
+        <nav>
+            <ul class="list">
+                <li class="links"><a href="index.html">Home</a></li>
+                <li class="links iloveyou"><a href="ILOVEYOU.html">ILOVEYOU</a></li>
+                <li class="links wannacry"><a href="WannaCry.html">WannaCry</a></li>
+                <li class="links mydoom"><a href="MyDoom.html">MyDoom</a></li>
+                <li class="links stuxnet"><a href="Stuxnet.html">Stuxnet</a></li>
+              </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+        <h1 class="title" id="wannacrytitle">WannaCry (2017)</h1>
+
+        <div class="container">
+        <p class="info">WannaCry was a large-scale ransomware attack that took place in May 2017, 
+            infecting over 230,000 computers across more than 150 countries. The ransomware exploited a vulnerability 
+            in Microsoft Windows called EternalBlue, originally developed by the NSA and later leaked by the hacking group 
+            known as the Shadow Brokers. WannaCry spread rapidly across networks, encrypting files and demanding ransom 
+            payments in Bitcoin to unlock the infected systems. Prominent victims of the attack included organizations 
+            like Britain’s National Health Service (NHS), which suffered significant disruptions, including canceled 
+            surgeries and appointments.
+
+            <br>
+            <br>
+
+            The ransomware leveraged the EternalBlue exploit to propagate autonomously between systems, making it 
+            particularly dangerous. Although Microsoft had issued a patch for the vulnerability two months before the attack, 
+            many organizations had not yet updated their systems, leaving them vulnerable. Financial damages from the attack 
+            were estimated to be between $4 billion and $8 billion globally due to operational downtime, lost productivity, 
+            and costs related to recovery and ransom payments.
+
+            <br>
+            <br>
+            
+            A critical turning point in stopping WannaCry’s spread came when a security researcher, Marcus Hutchins, 
+            discovered a “kill switch” embedded in the malware's code. By registering a specific domain name the malware 
+            was querying, Hutchins inadvertently halted the infection’s rapid spread. However, systems that had already 
+            been infected remained locked, and paying the ransom often did not result in files being decrypted as promised 
+            by the attackers.
+
+            <br>
+            <br>
+            
+            The WannaCry attack underscored the importance of regularly updating software and patching known security 
+            vulnerabilities. It also highlighted the risks associated with using outdated or unsupported operating systems, 
+            as many victims were running older versions of Windows. Despite the attack being contained, the EternalBlue 
+            exploit remains a significant tool in other cyberattacks, showcasing the long-lasting effects of the WannaCry 
+            incident.
+
+            <br>
+            <br>
+        </p>
+
+        <figure>
+            <img id="wannacry_img" src="images/wannacry.png" alt="WannaCry virus screenshot">
+            <figcaption id="wannacry_cap">(WannaCry virus screenshot)</figcaption>
+        </figure>
+    </div>
+    
+    <div class="sources">
+        <h1>Sources: </h1>
+        <ul>
+            <li><a target="_blank" href="https://www.helpnetsecurity.com/2020/06/15/wannacry-ransomware-lessons/">Help Net Security</a></li>
+            <li><a target="_blank" href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">Wikipedia</a></li>
+        </ul>
+    </div>
+
+    <div class="buttoncontainer">
+ 
+    <a href="ILOVEYOU.html"><button type="button" class="button" id="leftbutton">Previous</button></a>
+    <a href="MyDoom.html"><button type="button" class="button" id="rightbutton">Next</button></a>
+    </div>
+
+</main>
+
+    <footer>
+        <p id="copyrightText">CST 336 Internet Programming 2024&copy; - Bello</p>
+        <p>It is used for academic purposes only.</p>
+        <a href="https://csumb.edu/" target="_blank"><img id="otterImg" src="images/csumb_logo.jpg" alt="Otter"></a>
+    </footer>
+    
+</body>
+</html>

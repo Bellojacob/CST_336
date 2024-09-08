@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.heading{
+    text-align: center;
+    padding: 25px;
+}
+
+.header{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+nav{
+   
+    background-color: #282a36;
+}
+
+
+
+.list{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+
+.links{
+    padding: 25px;
+    font-size: 25px;
+}
+
+
+.links a{
+    color: white;
+    text-decoration: none;
+    
+    
+}
+
+.iloveyou a:hover{
+    color: pink;
+}
+
+.wannacry a:hover{
+    color: rgb(130, 174, 232);;
+}
+
+.mydoom a:hover{
+    color: orangered;
+}
+
+.stuxnet a:hover{
+    color: tan;
+}
+
+.title{
+    text-align: center;
+    padding: 25px 0;
+    
+    font-size: 50px;
+}
+
+#iloveyoutitle{
+    color: pink;
+}
+
+#wannacrytitle{
+    color: rgb(130, 174, 232)
+}
+
+#mydoomtitle{
+    color: orangered;
+}
+
+#stuxnettitle{
+    color: tan;
+}
+
+.info{
+    width: 50%;
+    padding-left: 6%;
+    font-size: 20px;
+}
+
+.container{
+    display: flex;
+}
+
+#ily_img{
+    width: 60%;
+    padding-left: 30%;
+    
+}
+
+#mydoom_img{
+    width: 70%;
+    padding-left: 30%;
+}
+
+#wannacry_img{
+    width: 100%;
+    padding-left: 25%;
+}
+
+#stuxnet_img{
+    width: 50%;
+    padding-left: 25%;
+}
+
+#virus_img{
+    width: 250%;
+    padding-left: 90%;
+}
+
+#ily_cap{
+    text-align: center;
+    padding-left: 20%;
+}
+
+#doom_cap{
+    text-align: center;
+    padding-left: 30%;
+    
+}
+
+#wannacry_cap{
+    text-align: center;
+    padding-left: 50%;
+}
+
+#stuxnet_cap{
+    text-align: center;
+    padding-left: 0%;
+}
+
+#virus_cap{
+    text-align: center;
+    padding-left: 200%;
+}
+
+.sources{
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.sources ul li{
+    padding: 20px 20px;
+    list-style-type: none;
+}
+
+.sources ul li a{
+    text-decoration: none;
+    color: white;
+    border: 3px solid #282a36;
+    border-radius: 20px;
+    background-color: #282a36;
+    padding: 10px 10px;
+    font-size: 25px;
+}
+
+.button{
+    color: white;
+    background-color: #282a36;
+    padding: 20px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.buttoncontainer{
+    padding-bottom: 30px;
+}
+#leftbutton{
+   
+}
+
+#rightbutton{
+    float: right;
+}
+
+#index-button{
+    float: right;
+}
+
+.buttoncontainer-index{
+    padding-bottom: 5%;
+}
+
+.main-content{
+    width: 50%;
+    padding-left: 6%;
+    font-size: 20px;
+    padding-top: 3%;
+    padding-bottom: 3%; 
+    display: flex;
+}
+
+
+
+
+
+
+footer{
+    text-align: center;
+    background-color: #282a36;
+    color: white;
+    
+}
+
+footer p{
+    padding-bottom: 15px;
+}
+
+#copyrightText{
+    padding-top: 40px;
+    
+}
+
+#otterImg{
+    width: 10%;
+    
+    border: 5px solid #112e50;
+    border-radius: 100px;
+
+
+    
+}
