@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    background-image: linear-gradient(270deg,#c8858b, #2d5696, #816791);
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    text-align: center;
+
+    border: 1px solid black;
+    margin-top: 5%;
+    padding-bottom: 5%;
+    background-color: #c6bbcb;
+    width: 75%;
+    border-radius: 20px;
+}
+
+#title{
+    padding: 2%;
+}
+
+.login-info-input{
+    font-size: 150%;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.login-labels{
+    font-size: 25px;
+    
+}
+
+.button{
+    margin-top: 3%;
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+#kofi{
+    width: 50%;
+    margin-top: 100px;
+    
+    border-radius: 50px;
+    border: 1px solid black;
+    
+}
+
+#kofi-title{
+    font-size: 75px;
+    padding-top: 40px;
+}
