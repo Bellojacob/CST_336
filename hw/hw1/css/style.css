@@ -37,9 +37,10 @@ nav{
 .links a{
     color: white;
     text-decoration: none;
-    
+    transition: color 0.3s ease-in-out;
     
 }
+
 
 .iloveyou a:hover{
     color: pink;
@@ -62,6 +63,7 @@ nav{
     padding: 25px 0;
     
     font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 #iloveyoutitle{
@@ -111,10 +113,7 @@ nav{
     padding-left: 25%;
 }
 
-#virus_img{
-    width: 250%;
-    padding-left: 90%;
-}
+
 
 #ily_cap{
     text-align: center;
@@ -170,35 +169,31 @@ nav{
     cursor: pointer;
 }
 
-.buttoncontainer{
-    padding-bottom: 30px;
-}
-#leftbutton{
-   
-}
 
-#rightbutton{
-    float: right;
-}
 
-#index-button{
-    float: right;
-}
 
-.buttoncontainer-index{
-    padding-bottom: 5%;
-}
 
 .main-content{
-    width: 50%;
-    padding-left: 6%;
-    font-size: 20px;
+    width: 45%;
+    padding-left: 5%;
+    font-size: 22px;
     padding-top: 3%;
     padding-bottom: 3%; 
-    display: flex;
+    display: flexbox;
 }
 
 
+#virus{
+    width: 60%;
+    padding-left: 25%;
+    padding-top: 10%;
+    
+}
+
+.index-info{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 
 
 
@@ -228,3 +223,10 @@ footer p{
 
     
 }
+
+#index-h1{
+    padding-top: 40px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
