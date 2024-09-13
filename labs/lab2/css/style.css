@@ -1,0 +1,11 @@
+main{
+    text-align: center;
+}
+
+#subHeading{
+    color: grey;
+}
+
+#resetButton{
+    display: none;
+}
