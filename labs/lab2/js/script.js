@@ -30,6 +30,7 @@ function checkNum(){
         document.querySelector("#feedback").style.color = "red";
         currentGuessCount++;
     } else {
+        
         document.querySelector("#feedback").innerText = "Invalid input";
         document.querySelector("#feedback").style.color = "red";
     }
