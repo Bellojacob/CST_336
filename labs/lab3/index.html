@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"> </script> 
+</head>
+<body>
+    <header>
+        <h1>Sports Quiz</h1>
+    </header>
+
+    <main>
+
+        <div class="questionContainer">
+        <h3 id="validation"></h3>
+
+        <!-- question 1 -->
+        <h3 class="question">1. Who is the all-time NFL passing yards leader? <span id="markQ1"></span></h3>
+        <input type="text" id="q1">
+        <h3 id="feedbackQ1"></h3>
+    </div>
+        
+
+        <div class="questionContainer">
+        <!-- question 2 -->
+
+        <h3 class="question">2. Who has the most F1 wins? <span id="markQ2"></span></h3>
+        <select  id="q2">
+            <option value="mv">Max Verstappen</option>
+            <option value="lh">Lewis Hamiltion</option>
+            <option value="as">Aryton Senna</option>
+            <option value="ms">Michael Schumacher</option>
+        </select>
+        <h3 id="feedbackQ2"></h3>
+        
+        </div>
+
+        <div class="questionContainer">
+        <!-- question 3 -->
+
+        <h3 class="question">3. Who has the most Home Runs in MLB history? <span id="markQ3"></span></h3>
+        <div class="q3Options">
+        <input type="checkbox" id="judge"> <label for="judge" class="multipleOptions">Aaron Judge</label>
+        <input type="checkbox" id="bonds"> <label for="bonds" class="multipleOptions">Barry Bonds</label>
+        <input type="checkbox" id="ruth"> <label for="ruth" class="multipleOptions">Babe Ruth</label>
+        <input type="checkbox" id="sosa"> <label for="sosa" class="multipleOptions">Sammy Sosa</label>
+    </div>
+        <h3 id="feedbackQ3"></h3>
+        
+    </div>
+
+    <div class="questionContainer">
+        <!-- question 4 -->
+        <h3 class="question">4. Who has the most assists in NBA history? <span id="markQ4"></span></h3>
+        <!-- <input type="radio" name="q4" id="jw" value="jerryWest"><label for="jw">Jerry West</label>
+        <input type="radio" name="q4" id="jk" value="jerryKidd"><label for="jk">Jason Kidd</label>
+        <input type="radio" name="q4" id="js" value="johnStockton"><label for="js">John Stockton</label>
+        <input type="radio" name="q4" id="sn" value="steveNash"><label for="sn">Steve Nash</label> -->
+        <div id="q4Choices"></div>
+        <h3 id="feedbackQ4"></h3>
+        
+    </div>
+
+    <div class="questionContainer">
+        <!-- question 5 -->
+        <h3 class="question">5. Who has the most NFL rushing yards? <span id="markQ5"></span></h3>
+        <ul class="q5">
+            <!-- I know this isn't the best way to have a numbered list, however it 
+            was behaving oddly and putting my numbers outside of my div with 
+            a ol -->
+            <li>1. Walter Payton</li>
+            <li>2. OJ Simpson</li>
+            <li>3. Adrian Peterson</li>
+            <li>4. Emmitt Smith</li>
+        <ul>
+        <input type="number" min="1" max="4" step="1" id="q5Input">
+        <div id="q5Choices"></div>
+        <h3 id="feedbackQ5"></h3>
+        
+</div>
+
+
+        <!-- submit quiz button -->
+        <button id="btn">Submit Quiz</button>
+        <br>
+
+
+        <div id="results">
+            <h2 id="totalScore"></h2>
+            <h3 id="totalAttempts"></h3>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

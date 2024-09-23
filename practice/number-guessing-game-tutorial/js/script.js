@@ -77,7 +77,7 @@ function checkGuess(){
             feedback.style.color = "red";
             losses++;
             document.querySelector("#lossesDisplay").textContent = losses;
-
+            
             gameOver();
         } else if (guess > randomNumber) {
             feedback.textContent = "Guess too high";
