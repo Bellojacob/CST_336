@@ -1,0 +1,60 @@
+#playingArea{
+    margin: 1% 1%;
+    border: 1px solid black;
+    height: 90vh;
+}
+
+.cards{
+    border: 1px solid black;
+    margin: 0 5px;
+    height: 25vh;
+    width: 18vh;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.cpuSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.userSection{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.additional{
+    display: none;
+}
+
+.options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.cpuTotal{
+    text-align: center;
+}
+
+.userTotal{
+    text-align: center;
+}
+
+.bust{
+    text-align: center;
+    font-size: 30px;
+    margin-top: -24px;
+    color: red;
+}
+
+#reset{
+    display: none;
+}
