@@ -8,15 +8,68 @@ let redIcons = [
     "images/club-red.svg",
     "images/heart-red.svg",
     "images/spade-red.svg",
-    "images/red-diamond.svg"
+    "images/diamond-red.svg"
 ];
 
 let blackIcons = [
-    "images/black-diamond.svg",
+    "images/diamond-black.svg",
     "images/heart-black.svg",
     "images/spade-black.svg",
     "images/club-black.svg"
 ];
+
+let redOrBlackArray = []
+let shapeArray = []
+
+for (let i = 0; i < 99; i++){
+    let randomNum = Math.floor(Math.random() * 2);
+    redOrBlackArray.push(randomNum)
+    
+}
+console.log("this is the red or black array " + redOrBlackArray)
+
+let redOrBlack;
+for (let i = 0; i <redOrBlackArray.length; i++){
+    if (redOrBlackArray[i] == 1){
+       redOrBlack = "red"
+    } else {
+        redOrBlack = "black"
+    }
+}
+
+let chosenImg;
+function getChosenImg(){
+    for (let i = 0; i < 99; i++){
+        let randomNum = Math.floor(Math.random() * 4);
+        if (redOrBlack === "red") {
+            if (randomNum === 0) {
+                chosenImg = redIcons[0];
+            } else if (randomNum === 1) {
+                chosenImg = redIcons[1];
+            } else if (randomNum === 2) {
+                chosenImg = redIcons[2];
+            } else if (randomNum === 3) {
+                chosenImg = redIcons[3];
+            }
+        } else if (redOrBlack === "black") {
+            if (randomNum === 0) {
+                chosenImg = blackIcons[0];
+            } else if (randomNum === 1) {
+                chosenImg = blackIcons[1];
+            } else if (randomNum === 2) {
+                chosenImg = blackIcons[2];
+            } else if (randomNum === 3) {
+                chosenImg = blackIcons[3];
+            }
+        }
+        return chosenImg;
+    }
+}
+
+
+
+
+
 
 
 //Buttons
@@ -163,29 +216,46 @@ function displayScore(){
     displayUserScore()
 }
 
+
+
+
+
 function displayUserCard() {
     for (let i = 0; i < userCardsArray.length; i++) {
         let currentCardElement = document.querySelector(`#userCard${i + 1}`);
         currentCardElement.innerText = userCardsArray[i];
         console.log(`Added value ${userCardsArray[i]} to card ${i + 1}`);
         currentCardElement.style.display = "block";
-        
-        let randomNum = Math.floor(Math.random() * 100);
-        if (randomNum % 2 == 0){
-            currentCardElement.style.color = "red";
-            let imgElement = document.createElement("img");
-            imgElement.src = redIcons[Math.floor(Math.random()*redIcons.length)]
-            imgElement.classList.add("card-icon");
-            currentCardElement.appendChild(imgElement)
-        } else {
-            currentCardElement.style.color = "black";
-            let imgElement = document.createElement("img");
-            imgElement.src = blackIcons[Math.floor(Math.random()*blackIcons.length)]
-            imgElement.classList.add("card-icon");
-            currentCardElement.appendChild(imgElement)
-        }
+
+        // Set redOrBlack based on the redOrBlackArray value
+        redOrBlack = redOrBlackArray[i] === 0 ? "red" : "black";
+
+        let imgElement = document.createElement("img");
+        imgElement.src = getChosenImg();
+        imgElement.classList.add("card-icon");
+        currentCardElement.appendChild(imgElement);
+
+        // Set the color of the card text
+        currentCardElement.style.color = redOrBlack;
     }
 }
+
+
+        // if (randomNum % 2 == 0){
+        //     currentCardElement.style.color = "red";
+        //     let imgElement = document.createElement("img");
+        //     imgElement.src = redIcons[Math.floor(Math.random()*redIcons.length)]
+        //     imgElement.classList.add("card-icon");
+        //     currentCardElement.appendChild(imgElement)
+        // } else {
+        //     currentCardElement.style.color = "black";
+        //     let imgElement = document.createElement("img");
+        //     imgElement.src = blackIcons[Math.floor(Math.random()*blackIcons.length)]
+        //     imgElement.classList.add("card-icon");
+        //     currentCardElement.appendChild(imgElement)
+        // }
+
+
 
 function hideUserCard() {
     for (let i = 2; i < userCardsArray.length; i++){
