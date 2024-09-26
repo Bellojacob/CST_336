@@ -1,9 +1,10 @@
 // Variables
-//arrays
+// arrays
 let cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A"];
 let randomCardArray = [];
 let userCardsArray = []
 let cpuCardsArray = []
+
 //Buttons
 let hitBtn = document.querySelector("#hit");
 let standBtn = document.querySelector("#stand");
@@ -20,13 +21,15 @@ let numericalCpuTotal = 0;
 generateCards();
 assignCards();
 displayUserScore();
+displayUserCard();
+displayCpuCard();
 
 // Event listeners
 hitBtn.addEventListener("click", newCard);
 standBtn.addEventListener("click", cpuTurn);
-resetBtn.addEventListener("click", resetGame); // Reset button functionality
+resetBtn.addEventListener("click", resetGame);
 
-// Generate the card deck
+// generate a random card deck
 function generateCards() {
     randomCardArray = []; // Clear the deck before generating new cards
     for (let i = 0; i < 52; i++) {
@@ -51,14 +54,13 @@ function getCard() {
     return card;
 }
 
-
-// Assign initial cards to CPU and User
+// Assign initial (2) cards to CPU and User
 function assignCards() {
-    let cpuCard1 = document.querySelector("#cpuCard1").innerText = getCard();
-    let cpuCard2 = document.querySelector("#cpuCard2").innerText = getCard();
+    let cpuCard1 = getCard();
+    let cpuCard2 = getCard();
 
-    let userCard1 = document.querySelector("#userCard1").innerText = getCard();
-    let userCard2 = document.querySelector("#userCard2").innerText = getCard();
+    let userCard1 = getCard();
+    let userCard2 = getCard();
 
     // Add the scores
     addScore(userCard1);
@@ -77,37 +79,7 @@ function assignCards() {
     displayScore()
 }
 
-// Draw a new card for the user
-function newCard() {
-    // // get current card from the html tag
-    // let currentIteration = `#userCard${counter}`;
-    // // get the card element that is current
-    // let cardElement = document.querySelector(currentIteration);
-    // // newUserCard equals the Card element, also set that card equal to a new card value
-    // let newUserCard = cardElement.innerText = getCard();
-    
-    // log the card element value
-    console.log(`new card value = ${newUserCard}`);
-    userCardsArray.push(newUserCard)
-    console.log(`User's card are ${userCardsArray}`)
-    
-    // // display the card element
-    // cardElement.style.display = "block";
-    // // increment so if the user presses hitBtn again, we get a new card element
-    // counter++;
-    
-    
-    // add the new card value to the user's total score
-    addScore(newUserCard);
-    // display the score
-    displayUserScore();
-}
-
-
-
-
-
-// Add the score for the user
+// method to handle score calculation for the user
 function addScore(card) {
     // if the new card passed in is K,Q, or J, then add 10 to the user's score
     if (card == "K" || card == "Q" || card == "J") {
@@ -134,47 +106,6 @@ function addScore(card) {
     return numericalUserTotal;
 }
 
-function userBust(){
-    document.querySelector(".result").innerText = "User Bust!";
-    showResetBtn()
-}
-
-// function to call both score displays
-function displayScore(){
-    displayCpuScore()
-    displayUserScore()
-}
-
-
-// Display the user score
-function displayUserScore() {
-    // display the current score
-    document.querySelector(".userTotal").innerText = "User Total: " + numericalUserTotal;
-}
-
-// CPU functionality
-
-// Display the CPU score
-function displayCpuScore() {
-    // display the cpu score
-    document.querySelector(".cpuTotal").innerText = "CPU Total: " + numericalCpuTotal;
-}
-
-// Draw a new card for the CPU
-function newCpuCard() {
-    // from the same deck, draw a card for the cpu
-    let cpuCurrentIteration = `#cpuCard${cpuCounter}`;
-    let cpuCardElement = document.querySelector(cpuCurrentIteration);
-    let newCpuCard = cpuCardElement.innerText = getCard();
-    console.log(`new card value = ${newCpuCard}`);
-    cpuCardsArray.push(newCpuCard)
-    console.log(`new CPU cards are ${cpuCardsArray}`);
-    cpuCardElement.style.display = "block";
-    cpuCounter++;
-    addCpuScore(newCpuCard);
-    displayCpuScore();
-}
-
 // Add the score for the CPU
 function addCpuScore(cpuCard) {
     // same functionality as for the user, all scores added to numericalCpuTotal
@@ -199,16 +130,103 @@ function addCpuScore(cpuCard) {
     return numericalCpuTotal;
 }
 
-// CPU's turn to play
-// after the user stands, the cpu will take it's turn
-function cpuTurn() {
+// Display the user score
+function displayUserScore() {
+    // display the current score
+    document.querySelector(".userTotal").innerText = "User Total: " + numericalUserTotal;
+}
+
+
+// Display the CPU score
+function displayCpuScore() {
+    // display the cpu score
+    document.querySelector(".cpuTotal").innerText = "CPU Total: " + numericalCpuTotal;
+}
+
+// function to call both score displays
+function displayScore(){
+    displayCpuScore()
+    displayUserScore()
+}
+
+function displayUserCard() {
+    for (let i = 0; i < userCardsArray.length; i++) {
+        let currentCardElement = document.querySelector(`#userCard${i + 1}`);
+        currentCardElement.innerText = userCardsArray[i];
+        console.log(`Added value ${userCardsArray[i]} to card ${i + 1}`);
+        currentCardElement.style.display = "block";
+    }
+}
+
+function hideUserCard() {
+    for (let i = 2; i < userCardsArray.length; i++){
+        // console.log(`I am not insane and this card value is ${userCardsArray[i]}`)
+        let card = document.querySelector(`#userCard${i + 1}`);
+        card.innerText = "0";
+        card.style.display = "none";
+        
+    }
+}
+
+function hideCpuCard() {
+    for (let i = 2; i < cpuCardsArray.length; i++){
+        // console.log(`I am not insane and this card value is ${userCardsArray[i]}`)
+        let card = document.querySelector(`#cpuCard${i + 1}`);
+        // card.innerText = "0";
+        card.style.display = "none";
+        
+    }
+}
+
+function displayCpuCard(){
+    for (let i = 0; i < cpuCardsArray.length; i++) {
+        let currentCardElement = document.querySelector(`#cpuCard${i + 1}`);
+        currentCardElement.innerText = cpuCardsArray[i];
+        console.log(`Added value ${cpuCardsArray[i]} to card ${i + 1}`);
+        currentCardElement.style.display = "block";
+    }
+}
+
+// Draw a new card for the user
+function newCard(){
+    let newUserCard = getCard()
+    addScore(newUserCard);
+    console.log(`new user card = ${newUserCard}`)
+    userCardsArray.push(newUserCard);
+    console.log(`New user array = ${userCardsArray}`)
+    displayUserCard()
+    displayScore()
+
+}
+
+// Draw a new card for the CPU
+function newCpuCard(){
+    let newCpuCard = getCard()
+    addCpuScore(newCpuCard);
+    console.log(`new cpu card = ${newCpuCard}`)
+    cpuCardsArray.push(newCpuCard);
+    console.log(`New user array = ${cpuCardsArray}`)
+    displayCpuCard()
+    displayScore()
+
+}
+
+
+function userBust(){
+    document.querySelector(".result").innerText = "User Bust!";
+    showResetBtn()
+}
+
+
+
+// when the standBtn is pressed, then it is the cpu's turn
+function cpuTurn(){
     console.log("Computer Playing...");
 
     // the cpu will keep drawing cards as long as it is under 21 and less than the user's score
     while (numericalCpuTotal < numericalUserTotal && numericalCpuTotal < 21) {
         newCpuCard();
     }
-
 
     // logic for if the cpu is wins,ties, or loses
     if (numericalCpuTotal > 21) {
@@ -237,25 +255,7 @@ function cpuBust(){
     document.querySelector(".result").innerText = "CPU Bust!";
 }
 
-// Reset the game state
-function resetGame() {
-    console.log("Resetting Game...");
-    numericalUserTotal = 0;
-    numericalCpuTotal = 0;
-    document.querySelector(".result").innerText = "";
-
-    removeCards()
-    
-    
-}
-
-function removeCards(){
-    for (let i = counter; i <= 2; i--){
-        let currentCard = document.querySelector(`#userCard${counter}`).display = "none";
-        console.log("Removed card " + currentCard + " from user")
-    }
-}
-
+// show certain button functions
 function showResetBtn(){
     hitBtn.style.display = "none";
     standBtn.style.display = "none";
@@ -268,3 +268,31 @@ function showPlayBtns(){
     resetBtn.style.display = "none";
 }
 
+// now reset game
+function resetGame(){
+    console.log("Resetting the game...")
+    // set result to none
+    document.querySelector(".result").innerText = "";
+
+    // empty both arrays
+    // userCardsArray = []
+    // cpuCardsArray = []
+    console.log(`User array = ${userCardsArray} \nCpu array = ${cpuCardsArray}`)
+    hideUserCard()
+    hideCpuCard()
+    
+    
+    // set scores to 0
+    numericalUserTotal = 0;
+    numericalCpuTotal = 0;
+    displayScore()
+
+    // empty both arrays
+    userCardsArray = []
+    cpuCardsArray = []
+    generateCards();
+    assignCards();
+    displayUserCard()
+    displayCpuCard()
+    showPlayBtns()
+}
