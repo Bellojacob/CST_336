@@ -4,6 +4,20 @@ let cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A"];
 let randomCardArray = [];
 let userCardsArray = []
 let cpuCardsArray = []
+let redIcons = [
+    "images/club-red.svg",
+    "images/heart-red.svg",
+    "images/spade-red.svg",
+    "images/red-diamond.svg"
+];
+
+let blackIcons = [
+    "images/black-diamond.svg",
+    "images/heart-black.svg",
+    "images/spade-black.svg",
+    "images/club-black.svg"
+];
+
 
 //Buttons
 let hitBtn = document.querySelector("#hit");
@@ -155,6 +169,21 @@ function displayUserCard() {
         currentCardElement.innerText = userCardsArray[i];
         console.log(`Added value ${userCardsArray[i]} to card ${i + 1}`);
         currentCardElement.style.display = "block";
+        
+        let randomNum = Math.floor(Math.random() * 100);
+        if (randomNum % 2 == 0){
+            currentCardElement.style.color = "red";
+            let imgElement = document.createElement("img");
+            imgElement.src = redIcons[Math.floor(Math.random()*redIcons.length)]
+            imgElement.classList.add("card-icon");
+            currentCardElement.appendChild(imgElement)
+        } else {
+            currentCardElement.style.color = "black";
+            let imgElement = document.createElement("img");
+            imgElement.src = blackIcons[Math.floor(Math.random()*blackIcons.length)]
+            imgElement.classList.add("card-icon");
+            currentCardElement.appendChild(imgElement)
+        }
     }
 }
 
@@ -184,6 +213,21 @@ function displayCpuCard(){
         currentCardElement.innerText = cpuCardsArray[i];
         console.log(`Added value ${cpuCardsArray[i]} to card ${i + 1}`);
         currentCardElement.style.display = "block";
+        
+        let randomNum = Math.floor(Math.random() * 100);
+        if (randomNum % 2 == 0){
+            currentCardElement.style.color = "red";
+            let imgElement = document.createElement("img");
+            imgElement.src = redIcons[Math.floor(Math.random()*redIcons.length)]
+            imgElement.classList.add("card-icon");
+            currentCardElement.appendChild(imgElement)
+        } else {
+            currentCardElement.style.color = "black";
+            let imgElement = document.createElement("img");
+            imgElement.src = blackIcons[Math.floor(Math.random()*blackIcons.length)]
+            imgElement.classList.add("card-icon");
+            currentCardElement.appendChild(imgElement)
+        }
     }
 }
 
@@ -266,6 +310,11 @@ function showPlayBtns(){
     hitBtn.style.display = "block";
     standBtn.style.display = "block";
     resetBtn.style.display = "none";
+}
+
+function hideCpuSecondCard(){
+    let currentCardElement = document.querySelector(`#cpuCard2`);
+    currentCardElement.style.display = "none"
 }
 
 // now reset game
