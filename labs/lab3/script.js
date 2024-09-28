@@ -4,11 +4,14 @@ displayQ4Choices();
 var score = 0;
 var attempts = localStorage.getItem("total_attempts");
 
+
+// random question order question
 function displayQ4Choices(){
     let q4ChoicesArray = ["John Stockton", "Jerry West", "Jason Kidd", "Steve Nash"]
     q4ChoicesArray = _.shuffle(q4ChoicesArray);
     for(let i = 0; i < q4ChoicesArray.length; i++){
         document.querySelector("#q4Choices").innerHTML += `<div style="padding: 5px; font-size: 20px;"><input type="radio" name="q4" id="${q4ChoicesArray[i]}"
+        // label for rubric requirement right below
         value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label></div>`;
     }
 }
@@ -135,9 +138,9 @@ function gradeQuiz(){
 
 
     if (score > 79){
-        document.querySelector("#totalScore").innerHTML = "Good Job!<br>";
+        document.querySelector("#goodJob").innerHTML = "Good Job!<br>";
     }
-    document.querySelector("#totalScore").innerHTML += `Total Score: ${score}  / 100`
+    document.querySelector("#totalScore").innerHTML = `Total Score: ${score}  / 100`
 
     document.querySelector("#totalAttempts").innerHTML = `Total Attempts: ${++attempts}`;
     localStorage.setItem("total_attempts", attempts);

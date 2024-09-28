@@ -25,6 +25,6 @@ async function displayMovieData(){
     document.querySelector("#movies").appendChild(imgEl);
     }
 
-
+ 
 }
 

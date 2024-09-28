@@ -6,6 +6,7 @@
 header{
     text-align: center;
     padding: 2% 0;
+    font-size: 40px;
 }
 
 main{
@@ -41,6 +42,7 @@ main{
     margin: 2%;
     padding: 1% 1%;
     font-size: 15px;
+    
 }
 
 #q2{
@@ -55,7 +57,7 @@ main{
 }
 
 .q5{
-    margin: 2%;
+    margin: 0%;
     font-size: 15px;
 }
 
@@ -65,7 +67,7 @@ main{
 }
 
 #q5Input{
-    padding: 1%;
+    padding: 2%;
     
 }
 
@@ -86,5 +88,19 @@ main{
     margin: auto;
     width: 30%;
     margin-bottom: 80px;
+    font-size: 25px;
+    /* background-color: lightgrey; */
+    border-radius: 10px;
+    /* border-color: darkgray;
+    box-shadow: 2px 2px darkgray; */
+}
+
+#goodJob{
+    padding: 1%;
+    margin: auto;
+    width: 30%;
+    margin-bottom: 00px;
+    font-size: 30px;
+    color: green;
 }
 
