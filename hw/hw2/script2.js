@@ -21,10 +21,12 @@ let blackIcons = [
 let redOrBlackArray = []
 let shapeArray = []
 
-for (let i = 0; i < 99; i++){
-    let randomNum = Math.floor(Math.random() * 2);
-    redOrBlackArray.push(randomNum)
-    
+function generateRedOrBlackArray(){
+    for (let i = 0; i < 99; i++){
+        let randomNum = Math.floor(Math.random() * 2);
+        redOrBlackArray.push(randomNum)
+        
+    }
 }
 console.log("this is the red or black array " + redOrBlackArray)
 
@@ -62,6 +64,7 @@ function getChosenImg(){
                 chosenImg = blackIcons[3];
             }
         }
+        generateRedOrBlackArray()
         return chosenImg;
     }
 }
@@ -228,7 +231,11 @@ function displayUserCard() {
         currentCardElement.style.display = "block";
 
         // Set redOrBlack based on the redOrBlackArray value
-        redOrBlack = redOrBlackArray[i] === 0 ? "red" : "black";
+        if (redOrBlackArray[i] === 0) {
+            redOrBlack = "red";
+        } else {
+            redOrBlack = "black";
+        }
 
         let imgElement = document.createElement("img");
         imgElement.src = getChosenImg();
@@ -284,22 +291,23 @@ function displayCpuCard(){
         console.log(`Added value ${cpuCardsArray[i]} to card ${i + 1}`);
         currentCardElement.style.display = "block";
         
-        let randomNum = Math.floor(Math.random() * 100);
-        if (randomNum % 2 == 0){
-            currentCardElement.style.color = "red";
-            let imgElement = document.createElement("img");
-            imgElement.src = redIcons[Math.floor(Math.random()*redIcons.length)]
-            imgElement.classList.add("card-icon");
-            currentCardElement.appendChild(imgElement)
-        } else {
-            currentCardElement.style.color = "black";
-            let imgElement = document.createElement("img");
-            imgElement.src = blackIcons[Math.floor(Math.random()*blackIcons.length)]
-            imgElement.classList.add("card-icon");
-            currentCardElement.appendChild(imgElement)
+                // Set redOrBlack based on the redOrBlackArray value
+                if (redOrBlackArray[i] === 0) {
+                    redOrBlack = "red";
+                } else {
+                    redOrBlack = "black";
+                }
+        
+                let imgElement = document.createElement("img");
+                imgElement.src = getChosenImg();
+                imgElement.classList.add("card-icon");
+                currentCardElement.appendChild(imgElement);
+        
+                // Set the color of the card text
+                currentCardElement.style.color = redOrBlack;
         }
     }
-}
+
 
 // Draw a new card for the user
 function newCard(){
