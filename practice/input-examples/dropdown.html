@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+    <style>
+    body{
+        text-align: center;
+        margin-top: 5%;
+    }
+    button{
+        margin-top: 5%;
+    }
+    </style>
+</head>
+<body>
+    <select id="dropdown">
+        <option value="One">Uno</option>
+        <option value="Two">Dos</option>
+        <option value="Tres">Tres</option>
+    </select>
+
+    <br>
+    <button>CLICK ME</button>
+    <script>
+
+        document.querySelector("button").addEventListener("click", clickMe)
+        function clickMe(){
+            alert(document.querySelector("#dropdown").value)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Buttons</title>
+    <style>
+    body{
+        text-align: center;
+        margin-top: 5%;
+    }
+    button{
+        margin-top: 5%;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>Who is the coolest Minion?</h1>
+
+        <label><input type="radio" name="names" id="stuart" value="Stuart">Stuart</label>
+        <label><input type="radio" name="names" id="bob" value="Bob">Bob</label>
+        <label><input type="radio" name="names" id="kevin" value="Kevin">Kevin</label>
+
+    
+    <br>
+    <button>CLICK ME</button>
+    <script>
+        document.querySelector("button").addEventListener("click", clickBtn)
+        function clickBtn(){
+            if (document.querySelector("#stuart").checked == true){
+                alert("Stuart!")
+            }
+            if (document.querySelector("#bob").checked == true){
+                alert("Bob!")
+            }
+            if (document.querySelector("#kevin").checked == true){
+                alert("Kevin!")
+            }
+        }
+    
+    </script>
+</body>
+</html>

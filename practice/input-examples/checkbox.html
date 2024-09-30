@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+    <style>
+    body{
+        text-align: center;
+        margin-top: 5%;
+    }
+    button{
+        margin-top: 5%;
+    }
+    </style>
+</head>
+<body>
+<ol>
+    <label><input type="checkbox" id="checkbox1" value="uno">Option 1</label>
+    <label><input type="checkbox" id="checkbox2" value="dos">Option 2</label>
+    <label><input type="checkbox" id="checkbox3" value="tres">Option 3</label>
+</ol>
+    
+    <br>
+    <button>CLICK ME</button>
+    <script>
+
+        document.querySelector("button").addEventListener("click", check)
+
+        function check(){
+            if (document.querySelector("#checkbox1").checked){
+                alert(document.querySelector("#checkbox1").value)
+            }
+            if (document.querySelector("#checkbox2").checked){
+                alert(document.querySelector("#checkbox2").value)
+            }
+            if (document.querySelector("#checkbox3").checked){
+                alert(document.querySelector("#checkbox3").value)
+            }
+            if (document.querySelector("#checkbox2").checked && document.querySelector("#checkbox2").checked
+            && document.querySelector("#checkbox3").checked){
+                alert("Bro why you picking all three?")
+            }
+        }
+
+    
+    </script>
+</body>
+</html>
