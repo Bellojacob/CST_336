@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+}
+
+.inputInfo{
+    margin: 5px;
+}
+
+.stateInput{
+    margin: 5px;
+}
+
+.usernamePassword{
+    margin: 5px;
+}
+
+#userInput{
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+}

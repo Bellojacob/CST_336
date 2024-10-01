@@ -3,35 +3,35 @@
 <head>
 <title> Lab 4 - Sign Up Page </title>
 </head>
+<link rel="stylesheet" href="style.css">
 <body>
 
 <h1> Sign Up Form </h1>
 
 <fieldset>
 <legend>Sign Up</legend>
-First Name: <input type="text"><br> 
-Last Name: <input type="text"><br> 
-Email: <input type="text"><br> 
-Phone Number:<input type="text"><br><br>
-Zip Code: <input id="zip" type="text"><br>
+<div class="inputInfo">First Name: <input type="text" placeholder="Jacob"><br> </div>
+<div class="inputInfo">Last Name: <input type="text" placeholder="Bello"><br> </div>
+<div class="inputInfo">Email: <input type="text" placeholder="yourEmail@gmail.com"><br> </div>
+<div class="inputInfo">Phone Number:<input type="text" placeholder="(805) 123 - 4567"><br></div>
+<div class="inputInfo">Zip Code: <input id="zip" type="text" placeholder="12345"><br></div>
 City: <span id="city"></span>
 <br>
 Latitude: <span id="latitude"></span>
 <br>
 Longitude: <span id="longitude"></span>
 <br><br>
-State:  
-<select id="state">
-    
-</select><br>
-Select a County: <select id="county">
+<div class="stateInput">State:  <select id="state"></select><br></div>
+<div class="stateInput">Select a County: <select id="county"></select><br></div>
 
-</select><br>
 
-Desired Username: <input id="username" type="text"> <span id="feedback"></span><br> 
-Password: <input id="userPassword" type="password"> <span id="apiPassword"></span><br>
-Type Password Again: <input type="password"><br>
+<div class="usernamePassword">Desired Username: <input id="username" type="text" placeholder="username"> <span id="feedback"></span><br></div> 
+<div class="usernamePassword">Password: <input id="userPassword" type="password" placeholder="password"> <span id="apiPassword"></span><br></div>
+<div class="usernamePassword">Type Password Again: <input id="confirmPassword" type="password" placeholder="retype password"><br></div>
 <input id="userInput" type="submit" value="Sign up!">
+<br>
+<span id="userNameValid"></span><br>
+<span id="passwordCheck"></span><br>
 <span id="error"></span>
 </fieldset>
 

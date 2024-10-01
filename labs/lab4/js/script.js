@@ -3,6 +3,7 @@ document.querySelector("#zip").addEventListener("change", displayCityInfo);
 document.querySelector("#userPassword").addEventListener("click", suggestPassword)
 document.querySelector("#username").addEventListener("change", captureUsername);
 document.querySelector("#state").addEventListener("change", displayCounty)
+document.querySelector("#userInput").addEventListener("click", buttonPress)
 
 let stateLetters;
 displayStates();
@@ -61,6 +62,7 @@ async function suggestPassword() {
     console.log(data);
 
     document.querySelector("#apiPassword").innerText = data.password;
+    
 
     if(userIn.length < 6){
         document.querySelector("#error").innerText = "Make length at least 6 or more characters!"
@@ -76,9 +78,51 @@ async function captureUsername() {
     let data = await response.json();
     console.log(data);
 
-    if(data.available == true){
-        document.querySelector("#feedback").innerText = "Cool";
+    if(data.available == true && userName.length >= 6){
+        document.querySelector("#feedback").innerText = "Cool Username!";
+        document.querySelector("#feedback").style.color = "green";
+        
     }else{
+        if (data.available == false){
         document.querySelector("#feedback").innerText = "Not Available!";
+        document.querySelector("#feedback").style.color = "red";
+        } else {
+            document.querySelector("#feedback").innerText = "Please use at least 6 characters!";
+            document.querySelector("#feedback").style.color = "red";
+        }
+    }
+}
+
+
+async function buttonPress(){
+    let userNameInput = document.querySelector("#username").value;
+    let password1 = document.querySelector("#userPassword").value;
+    let password2 = document.querySelector("#confirmPassword").value;
+    console.log(userNameInput + "\n" + password1 + "\n" + password2);
+
+    let userName = document.querySelector("#username").value;
+    let url = " https://csumb.space/api/usernamesAPI.php?username=" + userName;
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data);
+
+
+    if(data.available == true && userNameInput.length >= 6){
+        document.querySelector("#userNameValid").innerText = "Username Good!";
+        document.querySelector("#userNameValid").style.color = "green";
+        
+    }else{
+        if (data.available == false){
+        document.querySelector("#userNameValid").innerText = "Not Available!";
+        document.querySelector("#userNameValid").style.color = "red";
+        } else {
+            document.querySelector("#userNameValid").innerText = "Please use at least 6 characters!";
+            document.querySelector("#userNameValid").style.color = "red";
+        }
+    }
+
+    if (password1 == password2){
+        document.querySelector("#passwordCheck").innerText = "Passwords Match!";
+        document.querySelector("#passwordCheck").style.color = "green";
     }
 }
