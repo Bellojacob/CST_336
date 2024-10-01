@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a element</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    Here I created a text field
+    <div id="selectId"></div>
+    Here I created a button
+    <div id="div2"></div>
+
+    <script>
+        let example = document.createElement("input");
+        example.type = "text"
+        document.querySelector("#selectId").appendChild(example)
+
+        let ex2 = document.createElement("button");
+        ex2.innerText = "Hello"
+        ex2.type = "button";
+        document.querySelector("#div2").appendChild(ex2)
+    </script>
+</body>
+</html>

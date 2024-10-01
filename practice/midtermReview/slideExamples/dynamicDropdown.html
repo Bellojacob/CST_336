@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdown</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <select id="selectId"></select>
+    </div>
+
+    <script>
+        let arr = ["Option 1", "Option 2", "Option 3"]; 
+        for(let i = 0; i < arr.length; i++){
+            let dropDown = document.createElement("option"); 
+            dropDown.value = arr[i]; 
+            dropDown.textContent = arr[i]; //if you want the value & text to differ
+            document.querySelector("#selectId").appendChild(dropDown);
+        }
+    </script>
+</body>
+</html>

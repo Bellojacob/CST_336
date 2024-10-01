@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons & Event Listeners</title>
+</head>
+<body>
+    <button id="exBtn">Click Me!</button>
+    <script>
+        let exButton = document.querySelector("#exBtn")
+        exButton.addEventListener("click", myFun)
+        // can also do click, hover, change, input, and submit
+        function myFun(){
+            alert("Hola")
+        }
+    </script>
+</body>
+</html>

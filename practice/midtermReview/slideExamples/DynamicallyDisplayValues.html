@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically Display Values</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="divId"></div>
+
+    <script>
+        let arr = ["Orange", "Apple", "Grape"];
+        arr.sort(); // Will be in alphabetical order 
+        document.querySelector("#divId").innerHTML = "Your fruits are: ";
+        document.querySelector("#divId").style.color = "red"; 
+        for (let i = 0; i < arr.length; i++) {
+            document.querySelector("#divId").innerHTML += `${arr[i]} `;
+        }
+    </script>
+</body>
+</html>

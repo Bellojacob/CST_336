@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuffled Radio Buttons</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
+</head>
+<body>
+    <div id="q1Choices"></div>
+
+    <script>
+
+        let q1Choices = [11, 289, 346, 497];
+        q1Choices = _.shuffle(q1Choices); //include shuffle link
+        for (let i = 0; i < q1Choices.length; i++) {
+            let radioButton = document.createElement("input");
+            radioButton.type = "radio";
+            radioButton.name = "q1";
+            radioButton.value = q1Choices[i];
+
+            let buttonLabel = document.createElement("label");
+            buttonLabel.innerHTML = q1Choices[i];
+            buttonLabel.prepend(radioButton);	
+
+	        document.querySelector("#q1Choices").appendChild(buttonLabel);
+	}
+
+    </script>
+</body>
+</html>
