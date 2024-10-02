@@ -1,0 +1,49 @@
+body{
+    text-align: center;
+    background-image: url("https://widnr.widen.net/content/4uvhi6lfih/jpeg/iStock-1422593791.jpeg?w=568&h=378&keep=c&crop=yes&color=ffffffff&quality=80");
+    background-size: cover;
+}
+
+h1{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#petArray{
+    color: green;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#addAnimalBtn{
+    margin-top: 10px;
+}
+
+h4{
+    font-size: 20px;
+}
+
+#Main{
+    background-color: white;
+    padding: 10px;
+    margin: 10px 100px;
+}
+
+#back{
+    background-color: white;
+    padding: 10px;
+    margin: 10px 100px;
+}
+
+#rubric{
+    justify-content: center;
+    display: flex;
+}

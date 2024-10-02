@@ -124,5 +124,8 @@ async function buttonPress(){
     if (password1 == password2){
         document.querySelector("#passwordCheck").innerText = "Passwords Match!";
         document.querySelector("#passwordCheck").style.color = "green";
+    } else {
+        document.querySelector("#passwordCheck").innerText = "Passwords Do Not Match!";
+        document.querySelector("#passwordCheck").style.color = "red";
     }
 }

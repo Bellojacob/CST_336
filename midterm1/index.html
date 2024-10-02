@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Bello Midterm 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
+</head>
+<body>
+    <div id="Main">
+    <h1>Cool Pets</h1>
+    <div id="petArray">Pet Array: </div>
+
+        <h3>Add Pet:</h3>
+    <label>
+        <input type="text" id="userIn" placeholder="Insert Animal">
+    </label>
+
+    <br>
+    <button class="btn" id="addAnimalBtn">Add Pet</button>
+
+
+    <h4>Number of pets to display</h4>
+    <label>
+        <input type="number" id="numInput" min="1" max="10" step="1">
+    </label>
+    <br><span id="showPetsError"></span>
+
+    <br><label><input type="checkbox" id="checkbox1">Shuffled? </label><br>
+
+    <br><button class="btn" id="showPets">Show Choices</button>
+    <br>
+    <div id="animalsRadioBtns"></div>
+    <br>
+
+    <button class="btn" id="showImg">Show Image</button>
+
+    <div id="imgArea"></div>
+</div>
+    <script src="script.js"></script>
+
+    <br><br>
+    <div id="back">
+    <div id="rubric">
+    <table border="1" width="600" cellpadding="10px">
+        <tbody><tr><th>#</th><th>Task Description</th><th>Points</th></tr>
+         <tr style="color:green">
+            <td>1</td>
+            <td>The array of pets is displayed when the page loads <br></td>
+            <td width="20" align="center">10</td>
+         </tr>   
+        <tr style="color:green">
+            <td>2</td>
+            <td>New pets are added at the BEGINNING of the array <br>
+                </td>
+            <td width="20" align="center">10</td>
+        </tr>  										 
+         <tr style="color:green">
+            <td>3</td>
+            <td>The display of the array of pets is updated when adding a new pet <br>
+                </td>
+            <td width="20" align="center">15</td>
+        </tr>     
+         <tr style="color:green">
+            <td>4</td>
+            <td>An error message in red is displayed if "Number of Pets to Display" is greater than the array size. <br></td>
+            <td width="20" align="center">20</td>
+        </tr>     
+         <tr style="color:green">
+            <td>5</td>
+            <td>The pet choices (radio buttons) is displayed in alphabetical order when clicking on "Show Choices".  <br></td>
+            <td width="20" align="center">25</td>
+        </tr>     
+         <tr style="color:green">
+            <td>6</td>
+            <td>The pet choices is displayed in random order when clicking on "Show Choices" AND the "shuffled?" checkbox is checked. <br></td>
+            <td width="20" align="center">25</td>
+        </tr>
+        <tr style="color:green">
+            <td>7</td>
+            <td>The number of pet choices (radio buttons) corresponds to the "Number of Pets to Display" text box<br></td>
+            <td width="20" align="center">20</td>
+        </tr> 
+         <tr style="color:red">
+            <td>8</td>
+            <td>An image of the pet choice selected is displayed. Only one image is displayed at once<br></td>
+            <td width="20" align="center">25</td>
+        </tr> 
+        <tr style="color:red">
+            <td>9</td>
+            <td>The list of choices and the pet image are displayed next to each other, using a Flexbox <br></td>
+            <td width="20" align="center">15</td>
+        </tr>                     
+        <tr style="color:green">
+            <td>10</td>
+            <td>The web page has a nice design. Uses more than 10 CSS properties. Includes background image. Content is centered.  <br></td>
+            <td width="20" align="center">10</td>
+        </tr>   
+
+        <tr style="color:green">
+            <td>11</td>
+            <td>This rubric is properly included AND UPDATED</td>
+            <td width="20" align="center">3</td>
+        </tr>
+
+         <tr style="color:green">
+            <td>1</td>
+            <td>T O T A L </td>
+            <td width="20" align="center">&nbsp;138</td>
+        </tr> 
+    </tbody></table>
+</div>
+</div>
+</body>
+</html>
