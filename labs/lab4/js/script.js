@@ -16,9 +16,16 @@ async function displayCityInfo() {
     let response = await fetch(url);
     let data = await response.json();
     console.log(data);
-    document.querySelector("#city").innerText = data.city;
-    document.querySelector("#latitude").innerText = data.latitude;
-    document.querySelector("#longitude").innerText = data.longitude;
+    if (!data.city) {
+        document.querySelector("#city").innerText = "Zip code not found";
+        document.querySelector("#city").style.color = "red"
+        document.querySelector("#latitude").innerText = "";
+        document.querySelector("#longitude").innerText = "";
+    } else {
+        document.querySelector("#city").innerText = data.city;
+        document.querySelector("#latitude").innerText = data.latitude;
+        document.querySelector("#longitude").innerText = data.longitude;
+    }
 }
 
 async function displayStates() {
@@ -55,7 +62,7 @@ async function displayCounty() {
 }
 
 async function suggestPassword() {
-    let userIn = document.querySelector("#userPassword").value;
+    // let userIn = document.querySelector("#userPassword").value;
     let url = "https://csumb.space/api/suggestedPassword.php?length=8";
     let response = await fetch(url);
     let data = await response.json();
@@ -64,10 +71,12 @@ async function suggestPassword() {
     document.querySelector("#apiPassword").innerText = data.password;
     
 
-    if(userIn.length < 6){
-        document.querySelector("#error").innerText = "Make length at least 6 or more characters!"
-        document.querySelector("#error").style.color = "red";
-    }
+    // if(userIn.length < 6){
+    //     document.querySelector("#error").innerText = "Make length at least 6 or more characters!"
+    //     document.querySelector("#error").style.color = "red";
+    // } else {
+    //     document.querySelector("#error").display = "none"
+    // }
 
 }
 
@@ -78,8 +87,8 @@ async function captureUsername() {
     let data = await response.json();
     console.log(data);
 
-    if(data.available == true && userName.length >= 6){
-        document.querySelector("#feedback").innerText = "Cool Username!";
+    if(data.available == true && userName.length >= 3){
+        document.querySelector("#feedback").innerText = "Username Available!";
         document.querySelector("#feedback").style.color = "green";
         
     }else{
@@ -87,7 +96,7 @@ async function captureUsername() {
         document.querySelector("#feedback").innerText = "Not Available!";
         document.querySelector("#feedback").style.color = "red";
         } else {
-            document.querySelector("#feedback").innerText = "Please use at least 6 characters!";
+            document.querySelector("#feedback").innerText = "Please use at least 3 characters for your username!";
             document.querySelector("#feedback").style.color = "red";
         }
     }
@@ -95,6 +104,22 @@ async function captureUsername() {
 
 
 async function buttonPress(){
+    let userIn = document.querySelector("#userPassword").value;
+    if(userIn.length < 6){
+        document.querySelector("#error").innerText = "Please make password at least 6 characters"
+        document.querySelector("#error").style.color = "red";
+        
+        document.querySelector("#passwordLength").innerText = "Please make password at least 6 characters"
+        document.querySelector("#passwordLength").style.color = "red";
+    } else {
+        document.querySelector("#passwordLength").innerText = "Password Length Good!"
+        document.querySelector("#passwordLength").style.color = "green";
+
+        document.querySelector("#error").innerText = "Secure Password!"
+        document.querySelector("#error").style.color = "green";
+
+    }
+
     let userNameInput = document.querySelector("#username").value;
     let password1 = document.querySelector("#userPassword").value;
     let password2 = document.querySelector("#confirmPassword").value;
@@ -107,7 +132,7 @@ async function buttonPress(){
     console.log(data);
 
 
-    if(data.available == true && userNameInput.length >= 6){
+    if(data.available == true && userNameInput.length >= 3){
         document.querySelector("#userNameValid").innerText = "Username Good!";
         document.querySelector("#userNameValid").style.color = "green";
         
@@ -116,10 +141,12 @@ async function buttonPress(){
         document.querySelector("#userNameValid").innerText = "Not Available!";
         document.querySelector("#userNameValid").style.color = "red";
         } else {
-            document.querySelector("#userNameValid").innerText = "Please use at least 6 characters!";
+            document.querySelector("#userNameValid").innerText = "Please use at least 3 characters for your username!";
             document.querySelector("#userNameValid").style.color = "red";
         }
     }
+
+
 
     if (password1 == password2){
         document.querySelector("#passwordCheck").innerText = "Passwords Match!";
