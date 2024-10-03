@@ -105,9 +105,9 @@ async function displayBackground(){
     let response = await fetch(url)
     let img = await response.json()
     console.log(img)
-    body.style.backgroundImage = "url('https://images.unsplash.com/photo-1486208081179-de7dbc1637b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE2NnwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyNzkyODkyN3w&ixlib=rb-4.0.3&q=80&w=1080')"
-    body.style.backgroundRepeat = "no-repeat"
-    body.style.backgroundPosition = "center"
+    // body.style.backgroundImage = "url('https://images.unsplash.com/photo-1486208081179-de7dbc1637b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE2NnwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyNzkyODkyN3w&ixlib=rb-4.0.3&q=80&w=1080')"
+    // body.style.backgroundRepeat = "no-repeat"
+    // body.style.backgroundPosition = "center"
     
     
 }
