@@ -15,14 +15,39 @@ body{
 }
 
 #userInput{
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 20px;
+    background-color: black;
+    color: rgb(243, 243, 243);
 }
 
 .confirmation{
-    font-size: 20px;
+    font-size: 25px;
     
 
+}
+
+fieldset{
+    background-color: rgb(243, 243, 243);
+    margin: 0 600px;
+    border-radius: 20px;
+    box-shadow: 10px 10px darkgray;
+    font-size: 25px;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    
+}
+
+legend{
+    font-size: 30px;
+}
+
+.input{
+    font-size: 20px;
+    text-align: center;
 }

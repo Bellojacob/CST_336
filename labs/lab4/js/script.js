@@ -11,17 +11,19 @@ displayCounty();
 
 async function displayCityInfo() {
     let zipCode = document.querySelector("#zip").value;
-    let url="https://csumb.space/api/cityInfoAPI.php?zip=" + zipCode;
-    //or can do `https://csumb.space/api/cityInfoAPI.php?zip=${zipCode}`;
+    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCode}`;
     let response = await fetch(url);
     let data = await response.json();
     console.log(data);
+
     if (!data.city) {
-        document.querySelector("#city").innerText = "Zip code not found";
-        document.querySelector("#city").style.color = "red"
+        document.querySelector("#zipError").innerText = " Zip code not found";
+        document.querySelector("#zipError").style.color = "red";
+        document.querySelector("#city").innerText = "";
         document.querySelector("#latitude").innerText = "";
         document.querySelector("#longitude").innerText = "";
     } else {
+        document.querySelector("#zipError").innerText = "";
         document.querySelector("#city").innerText = data.city;
         document.querySelector("#latitude").innerText = data.latitude;
         document.querySelector("#longitude").innerText = data.longitude;
@@ -152,7 +154,7 @@ async function buttonPress(){
         document.querySelector("#passwordCheck").innerText = "Passwords Match!";
         document.querySelector("#passwordCheck").style.color = "green";
     } else {
-        document.querySelector("#passwordCheck").innerText = "Passwords Do Not Match!";
+        document.querySelector("#passwordCheck").innerText = "Passwords Do Not Match!\nRetype Password";
         document.querySelector("#passwordCheck").style.color = "red";
     }
 }

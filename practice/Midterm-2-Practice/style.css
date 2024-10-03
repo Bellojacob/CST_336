@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+}
+
+#authorInfo{
+    display: flex;
+}
+
+#authorInfo img{
+    height: 400px;
+    width: auto;
+    padding: 0px 50px;
+}
