@@ -1,0 +1,14 @@
+body{
+    text-align: center;
+    margin: 0 50px;
+}
+
+#authorBio img{
+    height: 200px;
+    width: auto;
+}
+
+#authorBio{
+    display: flex;
+    padding: 30px 30px;
+}
