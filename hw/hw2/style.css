@@ -89,3 +89,29 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
 }
+
+.enterName{
+    text-align: center;
+    
+    
+}
+
+#enter{
+    font-size: 30px;
+}
+
+#userName{
+    font-size: 20px;
+    width: 100px;
+}
+
+#addName{
+    font-size: 20px;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 5px;
+    background-color: white;
+    cursor: pointer;
+}

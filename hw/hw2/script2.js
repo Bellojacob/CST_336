@@ -1,5 +1,6 @@
 // Variables
 // arrays
+let playerName;
 let cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A"];
 let randomCardArray = [];
 let userCardsArray = []
@@ -21,6 +22,10 @@ let blackIcons = [
 let redOrBlackArray = []
 let shapeArray = []
 
+
+
+
+
 function generateRedOrBlackArray(){
     for (let i = 0; i < 99; i++){
         let randomNum = Math.floor(Math.random() * 2);
@@ -28,6 +33,7 @@ function generateRedOrBlackArray(){
         
     }
 }
+
 console.log("this is the red or black array " + redOrBlackArray)
 
 let redOrBlack;
@@ -79,6 +85,7 @@ function getChosenImg(){
 let hitBtn = document.querySelector("#hit");
 let standBtn = document.querySelector("#stand");
 let resetBtn = document.querySelector("#reset");
+let addUserName = document.querySelector("#addName")
 
 // iterators
 let counter = 3;
@@ -90,14 +97,26 @@ let numericalCpuTotal = 0;
 // Function calls
 generateCards();
 assignCards();
+
 displayUserScore();
 displayUserCard();
 displayCpuCard();
+
 
 // Event listeners
 hitBtn.addEventListener("click", newCard);
 standBtn.addEventListener("click", cpuTurn);
 resetBtn.addEventListener("click", resetGame);
+addUserName.addEventListener("click", takeUserName)
+
+
+function takeUserName(){
+    playerName = document.querySelector("#userName").value
+    console.log("User's Name is " + playerName)
+    console.log("The Add Name button was clicked") 
+    displayScore()   
+}
+
 
 // generate a random card deck
 function generateCards() {
@@ -202,9 +221,14 @@ function addCpuScore(cpuCard) {
 
 // Display the user score
 function displayUserScore() {
-    // display the current score
-    document.querySelector(".userTotal").innerText = "User Total: " + numericalUserTotal;
-}
+        if (playerName == undefined || playerName == ""){
+            document.querySelector(".userTotal").innerText = `User's Total: ${numericalUserTotal}`;
+        } else {
+            document.querySelector(".userTotal").innerText = `${playerName}'s Total: ${numericalUserTotal}`;
+        }
+        
+    }
+
 
 
 // Display the CPU score
