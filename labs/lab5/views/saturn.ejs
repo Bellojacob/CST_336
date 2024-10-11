@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include("partials/head.ejs") %>
+</head>
+<body>
+
+  <%-include("partials/nav.ejs") %>
+  <h2> Saturn </h2>
+  <div>
+    <%= saturn.description %>
+  </div>
+  
+  <img src="<%=saturn.image %>">
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+
+</body>
+</html>
