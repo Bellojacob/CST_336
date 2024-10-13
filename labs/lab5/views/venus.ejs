@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include("partials/head.ejs") %>
+</head>
+<body>
+
+  <%-include("partials/nav.ejs") %>
+  <h2> Venus </h2>
+  <div>
+    <%= venus.description %>
+  </div>
+  
+  <img src="<%=venus.image %>">
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+
+</body>
+</html>

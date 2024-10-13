@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+
+h1{
+    background-color: lightblue;
+    padding: 20px;
+}
+
+img{
+    width: 300px;
+    height: auto;
+    margin-top: 30px;
+}
+
