@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Sign Up Page </title>
+</head>
+<body>
+
+<h1> Sign Up Form </h1>
+
+<fieldset>
+<legend>Sign Up</legend>
+First Name: <input type="text"><br> 
+Last Name: <input type="text"><br> 
+Email: <input type="text"><br> 
+Phone Number:<input type="text"><br><br>
+Zip Code: <input type="text" id="zipCodeInput"> <span id="error"></span>
+<br>
+City: <span id="city"></span>
+<br>
+Latitude: <span id="lat"></span>
+<br>
+Longitude: <span id="long"></span>
+<br><br>
+State:  <select id="states"></select><br>
+Select a County: <select id="counties"> </select><br>
+
+Desired Username: <input type="text" id="username"> <span id="usernameValid"></span>
+<br>
+Password: <input type="password" id="password"> <span id="suggestPassword"></span>
+<br>
+Type Password Again: <input type="password" id="passwordAgain"><br>
+<input type="submit" value="Sign up!" id="btn">
+<h3 id="username3Char"></h3>
+<h3 id="password6Char"></h3>
+<h3 id="matchingPasswords"></h3>
+</fieldset>
+
+ <script src="script.js"></script>
+
+</body>
+</html>
+
+ 

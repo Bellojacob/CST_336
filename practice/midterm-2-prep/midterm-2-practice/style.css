@@ -1,0 +1,15 @@
+*{
+    text-align: center;
+    padding: none;
+    margin: none;
+}
+
+#authorBio img{
+    height: 400px;
+    width: auto;
+    margin-left: 5%;
+}
+
+#authorBio{
+    display: flex;
+}
