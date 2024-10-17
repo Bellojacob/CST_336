@@ -9,6 +9,12 @@ app.get('/', (req, res) => {
    res.render("home.ejs")
 });
 
+app.get('/planet', (req, res) => {
+   let planet =  req.query.planetName;
+   console.log(planet);
+   res.render("home.ejs")
+});
+
 app.get('/mercury', (req, res) => {
     let mercury = planets.getMercury();
     res.render("mercury.ejs", {mercury})
