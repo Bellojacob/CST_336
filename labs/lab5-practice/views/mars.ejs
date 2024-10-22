@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+<body>
+  <%- include("partials/nav.ejs") %>
+
+  <h2> Mars </h2>
+  <div> <%= mars.description %></div>
+  <div>
+    <%= mars.distanceFromSun %> <br>
+    <%= mars.yearLength %> <br>
+    <%= mars.radius %> <br>
+    <%= mars.oneEarthDay %> <br>
+    <%= mars.moons %> <br>
+    <%= mars.websiteLink %> <br>
+  </div>
+
+  <img src="<%= mars.image %>">
+
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+</body>
+</html>

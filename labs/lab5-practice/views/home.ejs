@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include ("partials/head.ejs") %>
+</head>
+<body>
+
+    <%-include ("partials/nav.ejs") %>
+<br>
+<!-- <form action="/planet"
+<div>
+    Select a planet:
+    <select name="planetName">
+        <option>Mercury</option>
+        <option>Mars</option>
+        <option>Saturn</option>
+        <option>Venus</option>
+
+    </select>
+</div>
+<br><br>
+<div><button>Get Info</button></div>
+</form> -->
+
+<form action="/celestialBody">
+    <div>
+        <select name="cometOrAsteroid">
+            <option>Comets</option>
+            <option>Asteroids</option>
+        </select>
+    </div>
+    <div><button>Display Info</button></div>
+</form>
+    
+    <img src="/img/solarSystem.png" alt="">
+
+
+    <br><br>
+    <%-include("partials/footer.ejs") %>
+</body>

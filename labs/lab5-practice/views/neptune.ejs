@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include("partials/head.ejs") %>
+</head>
+<body>
+
+  <%-include("partials/nav.ejs") %>
+  <h2> Neptune </h2>
+  <div> <%= neptune.description %></div>
+  <div>
+    <%= neptune.distanceFromSun %> <br>
+    <%= neptune.yearLength %> <br>
+    <%= neptune.radius %> <br>
+    <%= neptune.oneEarthDay %> <br>
+    <%= neptune.moons %> <br>
+    <%= neptune.websiteLink %> <br>
+  </div>
+  
+  <img src="<%=neptune.image %>">
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+
+</body>
+</html>

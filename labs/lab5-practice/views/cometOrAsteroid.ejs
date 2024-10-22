@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+<body>
+  <%- include("partials/nav.ejs") %>
+
+  <h2> <%= optionChosen %> </h2>
+
+  <div>
+  <%= info.def %>
+</div>
+
+  <img src="<%= info.image %>">
+
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+</body>
+</html>

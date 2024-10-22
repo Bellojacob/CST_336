@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+<body>
+  <%- include("partials/nav.ejs") %>
+
+  <h2> Mercury </h2>
+  <div> <%= mercury.description %></div>
+  <div>
+    <%= mercury.distanceFromSun %> <br>
+    <%= mercury.yearLength %> <br>
+    <%= mercury.radius %> <br>
+    <%= mercury.oneEarthDay %> <br>
+    <%= mercury.moons %> <br>
+    <%= mercury.websiteLink %> <br>
+  </div>
+  <img src="<%= mercury.image %>">
+
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+</body>
+</html>

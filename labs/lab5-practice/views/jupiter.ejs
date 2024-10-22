@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include("partials/head.ejs") %>
+</head>
+<body>
+
+  <%-include("partials/nav.ejs") %>
+  <h2> Jupiter </h2>
+  <div> <%= jupiter.description %></div>
+  <div>
+    <%= jupiter.distanceFromSun %> <br>
+    <%= jupiter.yearLength %> <br>
+    <%= jupiter.radius %> <br>
+    <%= jupiter.oneEarthDay %> <br>
+    <%= jupiter.moons %> <br>
+    <%= jupiter.websiteLink %> <br>
+  </div>
+  
+  <img src="<%=jupiter.image %>">
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include("partials/head.ejs") %>
+</head>
+<body>
+
+  <%-include("partials/nav.ejs") %>
+  <h2> Venus </h2>
+  <div> <%= venus.description %></div>
+  <div>
+    <%= venus.distanceFromSun %> <br>
+    <%= venus.yearLength %> <br>
+    <%= venus.radius %> <br>
+    <%= venus.oneEarthDay %> <br>
+    <%= venus.moons %> <br>
+    <%= venus.websiteLink %> <br>
+  </div>
+  
+  <img src="<%=venus.image %>">
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+
+</body>
+</html>
