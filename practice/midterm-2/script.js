@@ -8,6 +8,8 @@ document.querySelector("#authorBtn").addEventListener("click", displayAuthorInfo
 document.querySelector("#translate").addEventListener("click", translate)
 document.querySelector("#getQuotes").addEventListener("click", getQuotes)
 
+document.querySelector("#checkAnswer").addEventListener("click", checkAnswer)
+
 
 async function displayQuote(){
     let url = "https://webspace.csumb.edu/~lara4594/ajax/quotes/getRandomQuote.php"
@@ -104,4 +106,12 @@ async function getQuotes(){
 
 }
 
+
+async function checkAnswer(){
+    let url = `https://webspace.csumb.edu/~lara4594/ajax/quotes/checkAnswer.php?quoteId=${data.quoteId}&author=${data.firstName}`
+    let response = await fetch(url)
+    let data = await response.json()
+    console.log(data)
+    document.querySelector("#answer").innerText = data.answer
+}
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <%- include("partials/head.ejs") %>
 </head>
 <body>
@@ -17,5 +18,22 @@
   <br><br>
 
   <%-include("partials/footer.ejs") %>
+=======
+  <%-include("partials/head.ejs") %>
+</head>
+<body>
+
+  <%-include("partials/nav.ejs") %>
+  <h2> <%= planet %> </h2>
+
+  <div>
+    <%= planetInfo.description %>
+  </div>
+  <img src="<%=planetInfo.image %>">
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+
+>>>>>>> cb5e8ff7b81bac7755ccadc0f7546cc0b2dda6b5
 </body>
 </html>

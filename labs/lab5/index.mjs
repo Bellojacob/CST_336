@@ -1,6 +1,8 @@
 import express from 'express';
 const planets = (await import ('npm-solarsystem')).default;
 
+let planetInfo;
+
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -9,6 +11,7 @@ app.get('/', (req, res) => {
    res.render("home.ejs")
 });
 
+<<<<<<< HEAD
 app.get('/rock',(req, res) => {
   let rock = req.query.rockName;
   console.log(rock);
@@ -17,6 +20,16 @@ app.get('/rock',(req, res) => {
   rockInfo = planets[`get${rock}`]();
 
   res.render('planetInfo.ejs', {rockInfo, rock})
+=======
+app.get('/planet', (req, res) => {
+   let planet =  req.query.planetName;
+   console.log(planet);
+   
+   if (planet == "Venus"){
+      planetInfo = planets.getVenus();
+   }
+   res.render("planetInfo.ejs", {planetInfo, planet})
+>>>>>>> cb5e8ff7b81bac7755ccadc0f7546cc0b2dda6b5
 });
 
 app.get('/mercury', (req, res) => {

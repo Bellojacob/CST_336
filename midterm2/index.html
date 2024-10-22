@@ -5,10 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midterm 2</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
+
 </head>
 <body>
-    
+    <h1 id="title">SuperHero Quiz</h1>
 
+    <span id="superHeroImg"></span>
+
+    <h3 id="q1">What is the real name of this  superhero?</h3>
+    <select  class="input" id="dropdown">
+
+    </select>
+    <br>
+    <span id="feedbackQ1"></span>
+
+    <br>
+
+    <h3 id="questionTwo"></h3>
+    <br><br><br>
+    <span id="radioBtns" class="btn"></span>
+    <span id="feedbackQ2"></span>
+    <br>
+    <button id="checkAnswer" class="btn">Check Answers</button>
+    <br><br><br>
+    <button id="showVillains" class="btn">Show Villainns</button>
+
+
+    <span id="imgSection"></span>
     <script src="script.js"></script>
+
+    <br><br>
+    <div id="rubric">
+    <table border="1" width="600" cellpadding="10px">
+        <tbody><tr><th>#</th><th>Task Description</th><th>Points</th></tr>
+         <tr style="color:green">
+          <td>1</td>
+          <td>First question includes all elements (image, dropdown, button).
+            Data corresponds to the first hero retrieved from the API.
+                 <br></td>
+          <td width="20" align="center">25</td>
+         </tr>     
+         <tr style="color:green">
+          <td>2</td>
+          <td>In the first question, the dropdown menu choices (heroes' names) come from the Web API. <br>
+            </td>
+          <td width="20" align="center">30</td>
+        </tr>   
+        <tr style="color:red">
+          <td>2</td>
+          <td>In the first question, the dropdown menu choices (heroes' names) are displayed in random order <br>
+            </td>
+          <td width="20" align="center">15</td>
+        </tr>    
+         <tr style="color:green">
+          <td>3</td>
+          <td> First question (actual name) is graded via JavaScript using color-coded feedback<br></td>
+          <td width="20" align="center">25</td>
+        </tr>     
+        <tr style="color:green">
+          <td>4</td>
+          <td>In the second question, the hero's pseudonym is displayed as part of the question (e.g., Where was "Batman" born?) <br></td>
+          <td width="20" align="center">20</td>
+        </tr> 
+         <tr style="color:green">
+          <td>5</td>
+          <td>In the second question, the options (birth places) are displayed in random order <br></td>
+          <td width="20" align="center">15</td>
+        </tr>     
+         <tr style="color:red">
+          <td>6</td>
+          <td>The second question is properly graded using the corresponding Web API<br></td>
+          <td width="20" align="center">30</td>
+        </tr>  
+        <tr style="color:red">
+          <td>7</td>
+          <td>Color-coded feedback is provided for the second question<br></td>
+          <td width="20" align="center">15</td>
+        </tr>   
+    
+        <tr style="color:red">
+          <td>8</td>
+          <td>When clicking on the "Show Villains" button, the images are retrieved from API and displayed below the button<br></td>
+          <td width="20" align="center">30</td>
+        </tr>
+         <tr style="color:red">
+          <td>9</td>
+          <td>The villain images are displayed next to each other and the villain names are displayed below each image<br></td>
+          <td width="20" align="center">20</td>
+        </tr>
+        <tr style="color:green">
+          <td>10</td>
+          <td>The exam uses custom CSS with at least 10 properties<br></td>
+          <td width="20" align="center">10</td>
+        </tr>
+         
+        <tr style="color:green">
+          <td>11</td>
+          <td>This rubric is properly included AND UPDATED</td>
+          <td width="20" align="center">5</td>
+        </tr>
+            
+         <tr>
+          <td></td>
+          <td>T O T A L </td>
+          <td width="20" align="center">&nbsp; 130</td>
+        </tr> 
+      </tbody></table>
+    </div>   
+                        
 </body>
 </html>
