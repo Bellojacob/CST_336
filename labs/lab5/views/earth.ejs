@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+<body>
+  <%- include("partials/nav.ejs") %>
+
+  <h2> Earth </h2>
+  <div>
+    <%= earth.description %>
+    <br>
+    <%= earth.distanceFromSun%>
+    <br>
+    <%= earth.yearLength%>
+    <br>
+    <%= earth.radius%>
+    <br>
+    <%= earth.oneEarthDay%>
+    <br>
+    <%= earth.moons%>
+  </div>
+
+  <img src="<%= earth.image %>">
+
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+</body>
+</html>

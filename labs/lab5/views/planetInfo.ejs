@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+<body>
+  <%- include("partials/nav.ejs") %>
+
+  <h2> <%=rock%> </h2>
+
+  <div>
+  <%=rockInfo.def%>
+  </div>
+
+  <img src="<%=rockInfo.image%>">
+
+  <br><br>
+
+  <%-include("partials/footer.ejs") %>
+</body>
+</html>
