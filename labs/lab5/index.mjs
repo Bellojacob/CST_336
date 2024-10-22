@@ -1,6 +1,8 @@
 import express from 'express';
 const planets = (await import ('npm-solarsystem')).default;
 
+let planetInfo;
+
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -12,7 +14,11 @@ app.get('/', (req, res) => {
 app.get('/planet', (req, res) => {
    let planet =  req.query.planetName;
    console.log(planet);
-   res.render("home.ejs")
+   
+   if (planet == "Venus"){
+      planetInfo = planets.getVenus();
+   }
+   res.render("planetInfo.ejs", {planetInfo, planet})
 });
 
 app.get('/mercury', (req, res) => {
