@@ -73,6 +73,11 @@ app.get('/neptune', (req, res) => {
    res.render("neptune.ejs", {neptune})
 });
 
+app.get('/nasa', (req, res) => {
+   
+   res.render("nasa.ejs")
+});
+
 
 
 
