@@ -6,9 +6,9 @@
 <body>
   <%- include("partials/nav.ejs") %>
 
-    <h6>NASA</h6>
+    <h2>NASA</h2>
 
-    <form>
+    <form action="/nasa" method="GET">
         <label>
             Month
             <select id="month" name="monthSelected">
@@ -39,6 +39,8 @@
         <br>
         <button>Display Image</button>
     </form>
+    
+    <img src= "<%= imgUrl %>">
 
   <br><br>
 

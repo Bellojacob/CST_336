@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
     <%-include ("partials/head.ejs") %>
+    <style>
+        body{
+        background-image: url(' <%= imgUrl %>');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
@@ -24,7 +32,7 @@
 
 <form action="/celestialBody">
     <div>
-        <select name="cometOrAsteroid">
+        <select id="drop" name="cometOrAsteroid">
             <option>Comets</option>
             <option>Asteroids</option>
         </select>
@@ -32,7 +40,7 @@
     <div><button>Display Info</button></div>
 </form>
     
-    <img src="/img/solarSystem.png" alt="">
+    <img src="/img/solar-system.jpg" alt="">
 
 
     <br><br>
