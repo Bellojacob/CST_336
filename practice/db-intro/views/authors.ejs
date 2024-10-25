@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SQL Practice</title>
+</head>
+<body>
+
+    <h1>All Authors</h1>
+
+    <form action="/"> 
+        <button>Home Page</button>
+    </form>
+
+    <br>
+    <hr>
+
+    <% for (let row of rows){ %>
+        <%= row.firstName %> <%= row.lastName %> - <%= row.country %><br>
+        <hr>
+    <% } %>
+    
+    
+</body>
+</html>
