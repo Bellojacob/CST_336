@@ -18,5 +18,40 @@
         <input type="text" name="keyword">
         <button  class="btn btn-success">Search by keyword</button>
     </form>
+
+    <br><br>
+    <form action="/searchByCategory">
+        Select Category:
+
+        <select name="category">
+            <% for (cat of categories) { %>
+                <option> <%=cat.category%></option>
+                <% } %>
+        </select>
+        <button  class="btn btn-success">Search by Category</button>
+    </form>
+
+    <br><br>
+
+    
+
+    <form action="/searchByAuthor">
+        Select Author:
+
+        <select name="authorId">
+            <% for (author of authors) { %>
+            <option value="<%= author.authorId %>"> <%=author.firstName%> <%=author.lastName%></option>
+            <% } %>
+        </select>
+        <button  class="btn btn-success">Search by Author</button>
+    </form>
+
+    <br><br>
+    <form action="/searchByLikes">
+        Search by Likes:
+        <input type="number" name="num1"> -
+        <input type="number" name="num2">
+        <button  class="btn btn-success">Search by Likes</button>
+    </form>
 </body>
 </html>

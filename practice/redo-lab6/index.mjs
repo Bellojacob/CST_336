@@ -17,8 +17,17 @@ const pool = mysql.createPool({
 const conn = await pool.getConnection();
 
 //routes
-app.get('/', (req, res) => {
-   res.render('home.ejs')
+app.get('/', async (req, res) => {
+    let sql = `SELECT firstName, lastName
+               FROM authors`;
+    const [rows] = await conn.query(sql);
+
+    let sql2 = `SELECT DISTINCT category
+                FROM quotes`;
+    const [categories] = await conn.query(sql2);
+
+
+    res.render('home.ejs', {rows, categories});
 });
 
 app.get('/searchByKeyword', async (req, res) => {
@@ -30,6 +39,41 @@ app.get('/searchByKeyword', async (req, res) => {
     let sqlParams = [`%${keyword}%`];
     const [rows] = await conn.query(sql, sqlParams);
     console.log(keyword);
+    res.render("quotes.ejs", {rows})
+ });
+
+ app.get('/searchByAuthor', async (req, res) => {
+    let authorName = req.query.author;
+    let sql = `SELECT firstName, lastName, quote 
+               FROM quotes
+               NATURAL JOIN authors 
+               WHERE CONCAT(firstName, " ", lastName) LIKE ?`;
+    let sqlParams = [`%${authorName}%`];
+    const [rows] = await conn.query(sql, sqlParams);
+    console.log(authorName);
+    res.render("quotes.ejs", {rows})
+ });
+
+ app.get('/searchByCategory', async (req, res) => {
+    let category = req.query.category;
+    let sql = `SELECT firstName, lastName, quote 
+               FROM quotes
+               NATURAL JOIN authors 
+               WHERE category LIKE ?`;
+    let sqlParams = [`%${category}%`];
+    const [rows] = await conn.query(sql, sqlParams);
+    console.log(category);
+    res.render("quotes.ejs", {rows})
+ });
+
+ app.get('/searchByLikes', async (req, res) => {
+    let num1 = req.query.num1;
+    let num2 = req.query.num2;
+
+    let sql = `SELECT * FROM quotes WHERE likes >= ? and likes <= ?`;
+    let sqlParams = [num1, num2];
+    const [rows] = await conn.query(sql, sqlParams);
+    
     res.render("quotes.ejs", {rows})
  });
  

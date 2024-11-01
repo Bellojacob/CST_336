@@ -18,5 +18,40 @@
         <input type="text" name="keyword">
         <button  class="btn btn-success">Search by keyword</button>
     </form>
+
+    Author:
+    <form action="/searchByAuthor" >
+        <select name="author">
+                <% for (let row of rows){ %>
+                    <option>
+                    <%= row.firstName %> <%= row.lastName %><br>
+                    <hr>
+                <% } %>
+            </option>
+        </select>
+        <button  class="btn btn-success">Search by keyword</button>
+    </form>
+
+    Category:
+    <form action="/searchByCategory" >
+        <select name="category">
+                <% for (let row of categories){ %>
+                    <option>
+                    <%= row.category %><br>
+                    <hr>
+                <% } %>
+            </option>
+        </select>
+        <button  class="btn btn-success">Search by keyword</button>
+    </form>
+
+    Likes:
+    <form action="/searchByLikes" >
+        <input type="number" name="num1" step="10" min="0"> - 
+        <input type="number" name="num2" step="20">
+
+        <button  class="btn btn-success">Search by Likes</button>
+    </form>
+
 </body>
 </html>

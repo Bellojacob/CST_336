@@ -17,8 +17,16 @@ const pool = mysql.createPool({
 const conn = await pool.getConnection();
 
 //routes
-app.get('/', (req, res) => {
-   res.render('home.ejs')
+app.get('/', async (req, res) => {
+    let sql = `SELECT authorId, firstName, lastName
+               FROM authors
+               ORDER BY lastName`;
+    const [authors] = await conn.query(sql);
+
+    let sql2 = `SELECT DISTINCT category FROM quotes`
+    const [categories] = await conn.query(sql2);
+
+    res.render('home.ejs', {authors, categories})
 });
 
 app.get('/searchByKeyword', async (req, res) => {
@@ -32,7 +40,41 @@ app.get('/searchByKeyword', async (req, res) => {
     console.log(keyword);
     res.render("quotes.ejs", {rows})
  });
+
+ app.get('/searchByAuthor', async (req, res) => {
+    let authorId = req.query.authorId;
+    console.log(authorId);
+    let sql = `SELECT authorId, firstName, lastName, quote
+               FROM authors
+               NATURAL JOIN quotes 
+               WHERE authorId = ?`;
+    let sqlParams = [`${authorId}`];
+    const [rows] = await conn.query(sql, sqlParams);
+    console.log(authorId);
+    res.render("quotes.ejs", {rows})
+ });
+
  
+ app.get("/searchByLikes", async(req, res) => {
+    let num1 = req.query.num1;
+    let num2 = req.query.num2;
+    let sql = `SELECT * FROM quotes NATURAL JOIN authors 
+               WHERE likes >= ? and likes <= ? ORDER BY likes DESC`;
+    let sqlParams = [num1, num2]
+    const [rows] = await conn.query(sql, sqlParams);
+    res.render("quotes.ejs", {rows});
+});
+
+app.get("/searchByCategory", async(req, res) => {
+    let cat = req.query.category;
+    let sql = `SELECT authorId, firstName, lastName, quote
+               FROM authors
+               NATURAL JOIN quotes 
+               WHERE category = ?`;
+    let sqlParams = [cat]
+    const [rows] = await conn.query(sql, sqlParams);
+    res.render("quotes.ejs", {rows});
+});
 
 
 
