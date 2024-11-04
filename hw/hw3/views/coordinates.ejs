@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Coordinates</title>
+</head>
+<body>
+    <%- include("partials/nav.ejs") %>
+    
+    <% if (errorMessage) { %>
+        <h3 class="error"><%= errorMessage %></h3>
+        <% } else if (data && data.length > 0) { %>
+
+    <h1 class="title-forecast">Coordinates for <%= data[0].name %></h1>
+
+    <div class="coordinates-container">
+    <h2 class="coordinates-container-info">Location Name: <%= data[0].name %>, <%= data[0].state %>, <%= data[0].country %></h2>
+    <h3 class="coordinates-info">Latitude: <%= data[0].lat %></h3>
+    <h3 class="coordinates-info">Longitude: <%= data[0].lon %></h3>
+    </div>
+
+    <div class="map">
+    <iframe
+    width="600"
+    height="450"
+    style="border:0"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/view?key=<%= googleApiKey %>&center=<%= data[0].lat %>,<%= data[0].lon %>&zoom=12">
+  </iframe>
+</div>
+
+    <div class="coordinates-lookup-container">
+    <h3 class="coordinates-lookup-instruction">Look Up more Coordinates </h3>
+    <h3 class="coordinates-lookup-instruction-small"><br>(Enter city or city,country EX: marina,us):</h3>
+    <form action="/coordinates2">
+        <input type="text" name="userInput" class="userIn-box">
+        <br>
+        <button class="btn">Search</button>
+    </form>
+    </div>
+
+    <% } %>
+    <%-include("partials/foot.ejs") %>
+</body>
+</html>

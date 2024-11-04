@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Pollution</title>
+</head>
+<body>
+
+    <%- include("partials/nav.ejs") %>
+
+    <% if (errorMessage) { %>
+        <div class="pollution-lookup-container">
+        <h3 class="error"><%= errorMessage %></h3>
+        </div>
+    <% } else if (typeof aqi !== 'undefined' && name) { %>
+        <% let airQuality; %>
+        <% if (aqi === 1) { %>
+            <% airQuality = "Great"; %>
+        <% } else if (aqi === 2) { %>
+            <% airQuality = "Good"; %>
+        <% } else if (aqi === 3) { %>
+            <% airQuality = "Moderate"; %>
+        <% } else if (aqi === 4) { %>
+            <% airQuality = "Poor"; %>
+        <% } else if (aqi === 5) { %>
+            <% airQuality = "Hazardous"; %>
+        <% } else { %>
+            <% airQuality = "Unknown"; %>
+        <% } %>
+
+        <div class="pollution-container">
+            <h1 class="pollution-info">Air Quality Index for <%= name %>: <%= aqi %></h1>
+            <h2 class="pollution-info">Air Quality: <%= airQuality %></h2>
+        </div>
+    <% } else { %>
+        <p>Pollution data not available.</p>
+    <% } %>
+
+    <div class="pollution-lookup-container">
+        <h3 class="search-h1">Search Other Cities</h3>
+        <form action="/pollution2">
+            <input type="text" name="userInput" class="userIn-box" placeholder="Enter city name">
+            <br>
+            <button class="btn">Search</button>
+        </form>
+    </div>
+
+    <%- include("partials/foot.ejs") %>
+
+</body>
+</html>

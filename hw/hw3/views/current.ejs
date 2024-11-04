@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Coordinates</title>
+</head>
+<body>
+    <%- include("partials/nav.ejs") %>
+    
+
+<br><br>
+
+<div class="home-container">
+    <% if (errorMessage) { %>
+        <h3 class="error"><%= errorMessage %></h3>
+    <% } else if (weatherData) { %>
+        <h3 class="home-current">Current conditions for <%= weatherData.name %>:</h3>
+        <br>
+        <h4 class="home-info">Skies: <%= weatherData.weather[0].description %></h4>
+        <h4 class="home-info">Temperature: <%= Math.round(weatherData.main.temp) %> °F</h4>
+        <h4 class="home-info">Feels Like: <%= Math.round(weatherData.main.feels_like) %> °F</h4>
+        <h4 class="home-info">Low Temp: <%= Math.round(weatherData.main.temp_min) %> °F</h4>
+        <h4 class="home-info">High Temp: <%= Math.round(weatherData.main.temp_max) %> °F</h4>
+        <h4 class="home-info">Wind Speed: <%= Math.round(weatherData.wind.speed) %> MPH</h4>
+    <% } %>
+</div>
+
+
+    <div class="search-other-container">
+    <h1 class="search-h1">Search Other Cities</h1>
+    <h3 class="search-other-container-info">Enter a City:</h3>
+    <form action="/current">
+    <input type="text" name="userInput" class="userIn-box">
+    <br>
+    <button class="btn">Search for Weather Info</button>
+    </form>
+    </div>
+    
+
+
+
+
+    <%-include("partials/foot.ejs") %>
+</body>
+</html>

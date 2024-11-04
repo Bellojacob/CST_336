@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Forecast</title>
+</head>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <% if (errorMessage) { %>
+        
+         <div class="forecast-container">
+        <h3 class="error"><%= errorMessage %></h3>
+    </div>
+    <% } else if (forecastData && forecastData.city) { %>
+        
+        <h3 class="title-forecast">Forecast for <%= forecastData.city.name %>:</h3>
+    <% } %>
+
+    <% if (forecastData && forecastData.list && forecastData.list.length > 0) { %>
+        <% for (const w of forecastData.list) { %>
+            <div class="forecast-container">
+                <h5 class="forecast-info">Date and Time: <%= w.dt_txt %></h5>
+                <h5 class="forecast-info">Weather Condition: <%= w.weather[0].description %></h5>
+                <p class="forecast-info">Temperature: <%= Math.round(w.main.temp) %> °F</p>
+            </div>
+        <% } %>
+    <% } else if (!errorMessage) { %>
+        
+        <p>No forecast data available.</p>
+    <% } %>
+
+    <div class="forecast-lookup-container">
+        <h1 class="search-h1">Search Other Cities</h1>
+        <h2 class="forecast-lookup-info">Look Up Other Forecasts:</h2>
+        <form action="/forecast2">
+            <input type="text" name="userInput" class="userIn-box" placeholder="Enter city name">
+            <br>
+            <button class="btn">Search</button>
+        </form>
+    </div>
+
+    <%- include("partials/foot.ejs") %>
+</body>
+</html>

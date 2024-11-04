@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(0,212,255,1) 100%);
+}
+
+.title {
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.title-forecast {
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+nav{
+    text-align: center;
+    
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    padding: 15px 15px;
+}
+
+nav a:hover{
+    color: white;
+}
+
+.home-csumb{
+    font-size: 30px;
+    color: #364662;
+    
+    padding: 15px;
+}
+
+.home-container{
+    border-radius: 20px;
+    
+    text-align: center;
+    margin: 0 30%;
+    margin-top: 3%;
+    border: 4px solid #1F305E;
+    background-color: #B9D9EB;
+}
+
+.home-info{
+    font-size: 25px;
+    padding: 15px;
+}
+
+.search-other-container{
+    border-radius: 20px;
+    
+    text-align: center;
+    margin: 3% 30%;
+    
+    border: 4px solid #1F305E;
+    background-color: #B9D9EB;
+}
+
+.search-h1{
+    font-size: 30px;
+    color: black;
+    padding: 15px;
+}
+
+.search-other-container-info{
+    font-size: 25px;
+}
+
+.userIn-box{
+    padding: 10px;
+    font-size: 15px;
+}
+
+.btn{
+    margin: 10px;
+    font-size: 15px;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    border: 1px solid black;
+    cursor:pointer;
+}
+
+.btn:hover{
+    margin: 10px;
+    font-size: 15px;
+    padding: 10px;
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.home-current{
+    font-size: 30px;
+    color: black;
+    
+    padding: 15px;
+}
+
+.forecast-container{
+    width: 30%;
+    border: 4px solid #1F305E;
+    border-radius: 20px;
+    text-align: center;
+   
+    padding: 10px;
+    margin:20px auto ;
+    
+    background-color: #B9D9EB;
+}
+
+.forecast-info{
+    font-size: 20px;
+}
+
+.forecast-lookup-container{
+    width: 30%;
+    
+    border-radius: 20px;
+    text-align: center;
+   
+    padding: 10px;
+    margin:30px auto ;
+    border: 4px solid #1F305E;
+    background-color: #B9D9EB;
+}
+
+.forecast-lookup-info{
+    font-size: 20px;
+}
+
+.pollution-container{
+    width: 30%;
+    border: 4px solid #1F305E;
+    border-radius: 20px;
+    text-align: center;
+   
+    padding: 10px;
+    margin:20px auto ;
+     
+    background-color: #B9D9EB;
+}
+
+.pollution-info{
+    font-size: 30px;
+    padding: 5px;
+}
+
+.pollution-lookup-container{
+    width: 30%;
+    border: 4px solid #1F305E;
+    border-radius: 20px;
+    text-align: center;
+   
+    padding: 10px;
+    margin:30px auto ;
+    
+    background-color: #B9D9EB;
+}
+
+.coordinates-container{
+    width: 30%;
+    border: 4px solid #1F305E;
+    border-radius: 20px;
+    text-align: center;
+   
+    padding: 10px;
+    margin:20px auto ;
+    
+    background-color: #B9D9EB;
+}
+.coordinates-lookup-container{
+    width: 30%;
+    
+    border-radius: 20px;
+    text-align: center;
+   
+    padding: 10px;
+    margin:30px auto ;
+    border: 4px solid #1F305E;
+    background-color: #B9D9EB;
+}
+
+.map{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.coordinates-lookup-info{
+    font-size: 20px;
+}
+
+.coordinates-container-info{
+    font-size: 30px;
+    padding: 5px;
+}
+
+.coordinates-info{
+    font-size: 25px;
+    padding: 5px;
+}
+
+.coordinates-lookup-instruction{
+    font-size: 35px;
+}
+.coordinates-lookup-instruction-small{
+    font-size: 20px;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 275px;
+    
+}
+
+.error{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    padding: 20px;
+}
+
+#otterImg{
+    width: 10%;
+    
+    border: 5px solid #112e50;
+    border-radius: 100px;
+
+
+    
+}
