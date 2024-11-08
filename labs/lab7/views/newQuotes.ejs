@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Quotes</title>
+</head>
+<body>
+
+    <h1>New Quotes</h1>
+
+    <form action="/quotes/new" method="POST">
+
+        Quote:
+        <br>
+        <textarea id="w3review" name="textArea" rows="4" cols="50"></textarea>
+        <br>
+
+<br>
+        <select name="category" >
+            <option>Choose Category</option>
+            <option>Inspirational</option>
+            <option>Motivational</option>
+            <option>Life</option>
+        </select>
+
+        
+        <select name="author">
+            <option>Choose Author</option>
+            <option value="1">Albert Einstein</option>
+            <option value="2">Agatha Christie</option>
+            <option value="3">Marie Curie</option>
+
+
+
+        </select>
+
+
+        <button>Add Quote</button>
+    </form>
+    
+</body>
+</html>

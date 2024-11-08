@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
 
 app.get('/searchByKeyword', async (req, res) => {
     let keyword = req.query.keyword;
-    let sql = `SELECT firstName, lastName, quote 
+    let sql = `SELECT authorId, firstName, lastName, quote 
                FROM quotes
                NATURAL JOIN authors 
                WHERE quote LIKE ?`;
@@ -74,6 +74,17 @@ app.get("/searchByCategory", async(req, res) => {
     let sqlParams = [cat]
     const [rows] = await conn.query(sql, sqlParams);
     res.render("quotes.ejs", {rows});
+});
+
+// using route parameters
+app.get('/api/author/:authorId', async (req, res) => {
+    let authorId = req.params.authorId;
+    let sql = `SELECT * 
+            FROM authors
+            WHERE authorId=?`
+    let sqlParams = [authorId];
+    const [rows] = await conn.query(sql, sqlParams);
+    res.send(rows);
 });
 
 
