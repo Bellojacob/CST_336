@@ -12,46 +12,59 @@
     
     <h1 class="bg-primary text-center p-4 text-white"> Quote Finder </h1>
 
-    
-    Keyword:
+    <div class="text-center">
+    <h5>Keyword:</h5>
     <form action="/searchByKeyword" >
         <input type="text" name="keyword">
-        <button  class="btn btn-success">Search by keyword</button>
+        <br>
+        <button  class="btn btn-success my-3">Search by keyword</button>
     </form>
+</div>
+
 
     <br><br>
+
+    <div class="text-center">
     <form action="/searchByCategory">
-        Select Category:
+        <h5>Select Category:</h5>
 
         <select name="category">
             <% for (cat of categories) { %>
                 <option> <%=cat.category%></option>
                 <% } %>
         </select>
-        <button  class="btn btn-success">Search by Category</button>
+        <br>
+        <button  class="btn btn-success my-3">Search by Category</button>
     </form>
-
+</div>
     <br><br>
 
     
 
+    <div class="text-center">
     <form action="/searchByAuthor">
-        Select Author:
+        <h5>Select Author:</h5>
 
         <select name="authorId">
             <% for (author of authors) { %>
             <option value="<%= author.authorId %>"> <%=author.firstName%> <%=author.lastName%></option>
             <% } %>
         </select>
-        <button  class="btn btn-success">Search by Author</button>
+        <br>
+        <button  class="btn btn-success my-3">Search by Author</button>
     </form>
+</div>
 
     <br><br>
+
+    <div class="text-center">
     <form action="/searchByLikes">
-        Search by Likes:
-        <input type="number" name="num1"> -
-        <input type="number" name="num2">
-        <button  class="btn btn-success">Search by Likes</button>
-    </form>
+        <h5>Search by Likes:</h5>
+        <input type="number" name="num1" min="0" step="10"> -
+        <input type="number" name="num2" max="500" step="10">
+        <br>
+        <button  class="btn btn-success my-3">Search by Likes</button>
+    </form></div>
+
 </body>
 </html>

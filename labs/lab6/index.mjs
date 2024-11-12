@@ -31,6 +31,10 @@ app.get('/', async (req, res) => {
 
 app.get('/searchByKeyword', async (req, res) => {
     let keyword = req.query.keyword;
+    if (keyword.length < 3){
+        let error = "Please try again with a keyword that is at least 3 characters"
+        res.render("quotes.ejs", {error})
+    }
     let sql = `SELECT authorId, firstName, lastName, quote 
                FROM quotes
                NATURAL JOIN authors 
