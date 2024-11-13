@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Author</title>
+</head>
+<body>
+    
+    <h1>Edit Author</h1>
+
+    <form action="/author/edit" method="POST">
+
+    <input type="hidden" name="authorId" value="<%= authorData[0].authorId %>">
+
+
+    <h3>First Name:</h3>
+    <input type="text" name="firstName" value="<%=authorData[0].firstName%>">
+
+    <h3>Last Name:</h3>
+    <input type="text" name="lastName" value="<%=authorData[0].lastName%>">
+
+    <h3>Date of Birth</h3>
+    <% let dobFormatted = new Date(authorData[0].dob);
+    dobFormatted = dobFormatted.getFullYear() + "/" + (dobFormatted.getMonth() + 1) + "/" + dobFormatted.getDate(); %>
+    <input type="date" name="dob" value="<%=authorData[0].dob%>">
+
+    <h3>Date of Death</h3>
+    <input type="date" name="dod">
+
+   Sex:
+   <input type="radio" value="M" name="sex">Male
+   <input type="radio" value="F" name="sex">Female
+
+    <br>
+    
+    <br>
+
+    Bio:
+    <textarea id="w3review" name="bio" rows="4" cols="50"> <%=authorData[0].bio%></textarea>
+
+    <br><br>
+
+    Picutre URL:
+    <input type="text" name="picture">
+
+
+
+
+    
+
+
+    <br><br><br>
+    <button>Update Author</button>
+
+</form>
+
+<script src="/js/author.js"></script>
+
+</body>
+</html>

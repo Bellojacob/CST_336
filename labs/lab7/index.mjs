@@ -24,6 +24,40 @@ app.get('/', (req, res) => {
    res.render('home.ejs');
 });
 
+app.get('/authors', async (req, res) => {
+   let sql = `SELECT authorId, firstName, lastName
+              FROM authors
+              ORDER BY lastName`;
+
+   const [authors] = await conn.query(sql);
+
+   res.render('authors.ejs', {authors});
+});
+
+app.get('/author/edit', async (req, res) => {
+   let authorId = req.query.authorId;
+   let sql = `SELECT *
+            FROM authors
+            WHERE authorId = ?`;
+   let sqlParams = [authorId];
+   const [authorData] = await conn.query(sql, sqlParams);
+   res.render('editAuthor.ejs', {authorData});
+});
+
+app.post('/author/edit', async (req, res) => {
+   let authorId = req.body.authorId;
+   let firstName = req.body.firstName;
+   let lastName = req.body.lastName;
+   let bio = req.body.bio;
+
+   let sql = `UPDATE authors
+            SET firstName = ?, lastName = ?, biography = ?
+            WHERE authorId = ?`;
+   let sqlParams = [firstName, lastName, bio, authorId];
+   const [authorData] = await conn.query(sql, sqlParams);
+   res.redirect('/authors');
+});
+
 // route to display the form add new authors
 app.get('/authors/new', (req, res) => {
    res.render('newAuthor.ejs');
@@ -67,6 +101,8 @@ app.post('/quotes/new', async (req, res) => {
    const [rows] = await conn.query(sql, sqlParams);
    res.render('newQuotes.ejs');
 });
+
+
 
 
 
