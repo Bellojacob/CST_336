@@ -84,6 +84,8 @@ app.post('/author/new', async (req, res) => {
    res.render('newAuthor.ejs');
 });
 
+
+
 app.get('/quotes/new', (req, res) => {
    res.render('newQuotes.ejs');
 });

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%-include ("partials/head.ejs") %>
     <title>New Author</title>
 </head>
-<body>
+<body class="text-center">
     
     <h1>Edit Author</h1>
 
@@ -28,7 +27,7 @@
     <h3>Date of Death</h3>
     <input type="date" name="dod">
 
-   Sex:
+   <h3>Sex:</h3>
    <input type="radio" value="M" name="sex">Male
    <input type="radio" value="F" name="sex">Female
 
@@ -36,13 +35,13 @@
     
     <br>
 
-    Bio:
-    <textarea id="w3review" name="bio" rows="4" cols="50"> <%=authorData[0].bio%></textarea>
+    <h3>Bio:</h3>
+    <textarea name="bio" rows="4" cols="50"> <%=authorData[0].biography%></textarea>
 
     <br><br>
 
-    Picutre URL:
-    <input type="text" name="picture">
+    <h3>Picutre URL:</h3>
+    <input type="text" name="picture" value="<%= authorData[0].portrait %>">
 
 
 

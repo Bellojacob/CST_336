@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%-include ("partials/head.ejs") %>
     <title>New Author</title>
 </head>
-<body>
+<body class="text-center">
     
-    <h1>New Author</h1>
+    <h1>New Author</h1><br><br>
 
     <form action="/author/new" method="POST">
 
     <h3>First Name:</h3>
-    <input type="text" name="firstName">
-
+    <input type="text" name="firstName"><br><br>
     <h3>Last Name:</h3>
-    <input type="text" name="lastName">
+    <input type="text" name="lastName"><br><br>
 
     <h3>Date of Birth</h3>
-    <input type="date" name="dob">
+    <input type="date" name="dob"><br><br>
 
     <h3>Date of Death</h3>
-    <input type="date" name="dod">
+    <input type="date" name="dod"><br><br>
 
-   Sex:
+   <h3>Sex:</h3>
    <input type="radio" value="M" name="sex">Male
    <input type="radio" value="F" name="sex">Female
 
@@ -31,12 +29,11 @@
     
     <br>
 
-    Bio:
-    <textarea id="w3review" name="textArea" rows="4" cols="50"></textarea>
+    <h3>Bio:</h3>
+    <textarea name="textArea" rows="4" cols="50"></textarea><br><br>
 
-    <br><br>
 
-    Picutre URL:
+    <h3>Picutre URL:</h3>
     <input type="text" name="picture">
 
 
