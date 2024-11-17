@@ -24,6 +24,47 @@ app.get('/', (req, res) => {
    res.render('home.ejs');
 });
 
+app.get('/quotes', async (req, res) => {
+   let sql = `SELECT *
+              FROM quotes
+              ORDER BY quote`;
+
+   const [quotes] = await conn.query(sql);
+   res.render('quotes.ejs', {quotes});
+});
+
+app.get('/quote/edit', async (req, res) => {
+   let quoteId = req.query.quoteId;
+   let sql = `SELECT *
+            FROM quotes
+            WHERE quoteId = ?`;
+   let sql2 = `SELECT authorId, firstName, lastName
+               FROM authors
+               ORDER BY lastName`;
+   let sqlParams = [quoteId];
+   const [quoteData] = await conn.query(sql, sqlParams);
+   const [authors] = await conn.query(sql2);
+   res.render('editQuote.ejs', {quoteData, authors});
+});
+
+app.post('/quote/edit', async (req, res) => {
+   let quoteId = req.body.quoteId;
+   let quote = req.body.quote;
+   let authorId = req.body.authorId;
+   let category = req.body.category;
+   let likes = req.body.likes;
+   let sql = `UPDATE quotes
+            SET quote = ?,
+            category = ?,
+            authorId = ?,
+            likes = ?
+            WHERE quoteId = ?`;
+   
+   let sqlParams = [quote, category, authorId, likes, quoteId];
+   const [quoteData] = await conn.query(sql, sqlParams);
+   res.redirect('/quotes');
+});
+
 app.get('/authors', async (req, res) => {
    let sql = `SELECT authorId, firstName, lastName
               FROM authors
@@ -44,16 +85,24 @@ app.get('/author/edit', async (req, res) => {
    res.render('editAuthor.ejs', {authorData});
 });
 
+
+
 app.post('/author/edit', async (req, res) => {
    let authorId = req.body.authorId;
    let firstName = req.body.firstName;
    let lastName = req.body.lastName;
+   let country = req.body.country;
+   let dob = req.body.dob;
+   let dod = req.body.dod;
+   let sex = req.body.sex;
+   let profession = req.body.profession;
+   let portrait = req.body.portrait;
    let bio = req.body.bio;
 
    let sql = `UPDATE authors
-            SET firstName = ?, lastName = ?, biography = ?
+            SET firstName = ?, lastName = ?, biography = ?, country = ?, dob = ?, dod = ?, sex = ?, profession = ?, portrait = ? 
             WHERE authorId = ?`;
-   let sqlParams = [firstName, lastName, bio, authorId];
+   let sqlParams = [firstName, lastName, bio, country, dob, dod, sex, profession, portrait, authorId];
    const [authorData] = await conn.query(sql, sqlParams);
    res.redirect('/authors');
 });

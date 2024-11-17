@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%-include ("partials/head.ejs") %>
-    <title>New Author</title>
+    <%- include("partials/head.ejs") %>
+    <title>Edit Author</title>
 </head>
 <body class="text-center">
     
     <h1>Edit Author</h1>
 
     <form action="/author/edit" method="POST">
+        <input type="hidden" name="authorId" value="<%= authorData[0].authorId %>">
 
-    <input type="hidden" name="authorId" value="<%= authorData[0].authorId %>">
+        <h3>First Name:</h3>
+        <input type="text" name="firstName" value="<%= authorData[0].firstName %>">
 
+        <h3>Last Name:</h3>
+        <input type="text" name="lastName" value="<%= authorData[0].lastName %>">
 
-    <h3>First Name:</h3>
-    <input type="text" name="firstName" value="<%=authorData[0].firstName%>">
+        <h3>Date of Birth</h3>
+        <% 
+            let dobFormatted = new Date(authorData[0].dob);
+            dobFormatted = dobFormatted.getFullYear() + "-" + 
+                           (dobFormatted.getMonth() + 1).toString().padStart(2, "0") + "-" + 
+                           dobFormatted.getDate().toString().padStart(2, "0");
+        %>
+        <input type="date" name="dob" value="<%= dobFormatted %>">
 
-    <h3>Last Name:</h3>
-    <input type="text" name="lastName" value="<%=authorData[0].lastName%>">
+        <h3>Date of Death</h3>
+        <% 
+        let dodFormatted = new Date(authorData[0].dod);
+        dodFormatted = dodFormatted.getFullYear() + "-" + 
+                       (dodFormatted.getMonth() + 1).toString().padStart(2, "0") + "-" + 
+                       dodFormatted.getDate().toString().padStart(2, "0");
+    %>
+        <input type="date" name="dod" value="<%= dodFormatted %>">
 
-    <h3>Date of Birth</h3>
-    <% let dobFormatted = new Date(authorData[0].dob);
-    dobFormatted = dobFormatted.getFullYear() + "/" + (dobFormatted.getMonth() + 1) + "/" + dobFormatted.getDate(); %>
-    <input type="date" name="dob" value="<%=authorData[0].dob%>">
+        <br>
+        <h3>BirthPlace</h3>
+        <input type="text" value="<%= authorData[0].country %>" name="country">
 
-    <h3>Date of Death</h3>
-    <input type="date" name="dod">
+        <br>
+        <h3>Profession</h3>
+        <input type="text" value="<%= authorData[0].profession %>" name="profession">
 
-   <h3>Sex:</h3>
-   <input type="radio" value="M" name="sex">Male
-   <input type="radio" value="F" name="sex">Female
+        <h3>Sex:</h3>
+        <label>
+            <input type="radio" value="M" name="sex" <% if (authorData[0].sex === 'M') { %>checked<% } %> > Male
+        </label>
+        <label>
+            <input type="radio" value="F" name="sex" <% if (authorData[0].sex === 'F') { %>checked<% } %> > Female
+        </label>
 
-    <br>
-    
-    <br>
+        <h3>Bio:</h3>
+        <textarea name="bio" rows="4" cols="50"><%= authorData[0].biography %></textarea>
 
-    <h3>Bio:</h3>
-    <textarea name="bio" rows="4" cols="50"> <%=authorData[0].biography%></textarea>
+        <h3>Picture URL:</h3>
+        <input type="text" name="portrait" value="<%= authorData[0].portrait %>">
 
-    <br><br>
+        <br><br>
+        <button>Update Author</button>
+    </form>
 
-    <h3>Picutre URL:</h3>
-    <input type="text" name="picture" value="<%= authorData[0].portrait %>">
-
-
-
-
-    
-
-
-    <br><br><br>
-    <button>Update Author</button>
-
-</form>
-
-<script src="/js/author.js"></script>
+    <script src="/js/author.js"></script>
 
 </body>
 </html>

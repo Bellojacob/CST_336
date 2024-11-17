@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include ("partials/head.ejs") %>
+    <title>New Quotes</title>
+</head>
+<body class="text-center">
+
+    <h1>Updating Quotes</h1>
+    <hr>
+
+    <%= quoteData[0].quoteId %> <br>
+    <%= quoteData[0].quote %> <br>
+    <%= quoteData[0].category %> <br>
+    AuthorId: <%= quoteData[0].authorId %> <br>
+
+    <br><br>
+
+
+    <form action="/quote/edit" method="POST">
+
+        <h3>Quote</h3>
+
+        
+        <input type="hidden" name="QuoteId" value="<%= quoteData[0].quoteId %>">
+        <br>
+
+        <textarea name="quote"> <%= quoteData[0].quote %></textarea>
+        <br>
+        <h3>Category</h3>
+        <select name="category">
+            <option>Inspirational</option>
+            <option>Motivational</option>
+            <option>Inspirational</option>
+
+        </select>
+        <br><br>
+        <h3>Author</h3>
+        <select name="authorId">
+            <% for (let i of authors) { %>
+                <option
+                <% if (quoteData[0].authorId == i.authorId) { %>
+                selected
+                <% } %>
+                value="<%= i.authorId %>"><%=i.firstName%> <%=i.lastName%></option>
+                <% } %>
+            
+
+        </select>
+
+        <h3>Likes</h3>
+        <input type="number" name="likes" value="<%=quoteData[0].likes%>">
+
+
+        <br><br><br>
+
+        <button>Update Quote</button>
+    </form>
+    
+</body>
+</html>

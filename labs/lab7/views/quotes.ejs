@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <%-include ("partials/head.ejs") %>
-    <title>Quotes</title>
+    <title>Quotes List</title>
 </head>
 <body class="text-center">
     <h1>Quotes</h1>
+
+    <% for (let i of quotes) { %>
+        [ <a href="/quote/edit?quoteId=<%= i.quoteId%>">Update</a> ] <%= i.quote %> <br>
+     <% } %>
 </body>
 </html>
