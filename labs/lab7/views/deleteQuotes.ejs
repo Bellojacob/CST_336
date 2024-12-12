@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Delete Quotes</title>
+</head>
+<body class="text-center">
+    <%-include ("partials/nav.ejs") %>
+    <h1 class="my-5">Delete Quotes</h1>
+    <form action="/quotes/delete" method="POST">
+        <label for="quoteId">Select a Quote to Delete:</label>
+        <select name="quoteId" id="quoteId" required>
+            <% for (let quote of quotes) { %>
+                <option value="<%= quote.quoteId %>">
+                    "<%= quote.quote %>" (<%= quote.category %>)
+                </option>
+            <% } %>
+        </select>
+        <br><br>
+        <button type="submit" class="btn btn-danger">Delete Quote</button>
+    </form>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <title>New Author</title>
 </head>
 <body class="text-center">
+    <%-include ("partials/nav.ejs") %>
     
     <h1>New Author</h1><br><br>
 
@@ -25,15 +26,18 @@
    <input type="radio" value="M" name="sex">Male
    <input type="radio" value="F" name="sex">Female
 
-    <br>
-    
-    <br>
+    <br><br>
+    <h3>Profession:</h3>
+    <input type="text" name="profession"><br><br>
+
+    <h3>Country:</h3>
+    <input type="text" name="country"><br><br>
 
     <h3>Bio:</h3>
     <textarea name="textArea" rows="4" cols="50"></textarea><br><br>
 
 
-    <h3>Picutre URL:</h3>
+    <h3>Picture URL:</h3>
     <input type="text" name="picture">
 
 

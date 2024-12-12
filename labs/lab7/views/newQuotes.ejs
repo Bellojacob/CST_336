@@ -5,6 +5,7 @@
     <title>New Quotes</title>
 </head>
 <body class="text-center">
+    <%-include ("partials/nav.ejs") %>
 
     <h1>New Quotes</h1>
 
@@ -18,17 +19,17 @@
 <br>
         <select name="category" >
             <option>Choose Category</option>
-            <option>Inspirational</option>
-            <option>Motivational</option>
-            <option>Life</option>
+            <% for (cat of categories) { %>
+                <option> <%=cat.category%></option>
+                <% } %>
         </select>
 
         
         <select name="author">
             <option>Choose Author</option>
-            <option value="1">Albert Einstein</option>
-            <option value="2">Agatha Christie</option>
-            <option value="3">Marie Curie</option>
+            <% for (author of authors) { %>
+                <option value="<%= author.authorId %>"> <%=author.firstName%> <%=author.lastName%></option>
+                <% } %>
 
 
 

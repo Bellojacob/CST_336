@@ -5,29 +5,42 @@
     <title>Lab 7: Famous Quotes</title>
 </head>
 <body class="text-center">
+    <%-include ("partials/nav.ejs") %>
 
-    <h1>Admin Section</h1>
+    <h1 class="my-5">Admin Section</h1>
 
-    <form action="/authors/new">
-        <button>Add Authors</button>
-    </form>
+        <div class="d-flex justify-content-center my-5">
+        <form action="/authors/new">
+            <button class="btn btn-primary mx-3 p-5 fs-3">Add Authors</button>
+        </form>
+        <br>
+        <form action="/quotes/new">
+            <button class="btn btn-success mx-3 p-5 fs-3">Add Quotes</button>
+        </form></div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <form action="/authors">
+                <button class="btn btn-warning mx-3 p-5 fs-3">Display Authors</button>
+            </form>
+            <br>
+            <form action="/quotes">
+                <button class="btn btn-danger mx-3 p-5 fs-3">Display Quotes</button>
+            </form>
+        </div>
 
-    <br>
+        <div class="d-flex justify-content-center">
+            <form action="/authors/delete">
+                <button class="btn btn-info mx-3 my-5 p-5 fs-3">Delete Authors</button>
+            </form>
+            <form action="/quotes/delete">
+                <button class="btn btn-dark mx-3 p-5 my-5 fs-3">Delete Quotes</button>
+            </form>
+            
+        </div>
+    </div>
+    
 
-    <form action="/quotes/new">
-        <button>Add Quotes</button>
-    </form>
-
-    <br>
-
-    <form action="/authors">
-        <button>Display Authors</button>
-    </form>
-
-    <br>
-    <form action="/quotes">
-        <button>Display Quotes</button>
-    </form>
+    
     
 </body>
 </html>

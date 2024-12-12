@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Delete Authors</title>
+</head>
+<body class="text-center">
+    <%-include ("partials/nav.ejs") %>
+    <h1 class="my-5">Delete Authors</h1>
+    <form action="/authors/delete" method="POST">
+        <label for="authorId">Select an Author to Delete:</label>
+        <select name="authorId" id="authorId" required>
+            <% for (let author of authors) { %>
+                <option value="<%= author.authorId %>">
+                    <%= author.firstName %> <%= author.lastName %>
+                </option>
+            <% } %>
+        </select>
+        <br><br>
+        <button type="submit" class="btn btn-danger">Delete Author</button>
+    </form>
+</body>
+</html>
