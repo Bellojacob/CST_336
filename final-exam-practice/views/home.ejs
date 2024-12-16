@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home Page!</h1>
+    <% for (let i of rows) { %>
+        <h1><%= i.comicSiteName %></h1>
+        <br>
+        <a href="<%=i.comicSiteUrl%>" target="_blank"> <%=i.comicSiteUrl%></a>
+        <% } %>
+
+    <form action="/addComic">
+        <button>Add Comic</button>
+    </form>
+</body>
+</html>

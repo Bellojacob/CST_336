@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+    <h1>Add Comic</h1>
+    
+    <h2>Title:</h2>
+    <input type="text" name="title">
+    <br>
+    <h2>Url:</h2>
+    <input type="text" name="url">
+    <br>
+    <h2>Title:</h2>
+    <input title="date" name="date">
+    <br>
+    <br>
+    <select name="website">
+        <% for (let i of rows) { %>
+            <option value="<%= i.comicSiteUrl %>"><%= i.comicSiteName %></option>
+            <% } %>
+    </select>
+    <br>
+    <button>Submit New Comic</button>
+</form>
+</body>
+</html>
