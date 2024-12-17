@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/head.ejs") %>
+    <title>Comic Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle (includes Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h1>Comic Page</h1>
+
+    <% for (let i of rows) { %>
+        <br>
+        <h2><%= i.comicTitle %></h2>
+        <img src="<%= i.comicUrl %>">
+        <br><br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentsModal" onclick="loadComments('<%= i.comicId %>')">
+            View Comments
+        </button>
+    <% } %>
+    
+    <!-- Comments Modal -->
+    <div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="commentsModalLabel">Comments</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="commentsContainer">
+                    <!-- Comments will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadComments(comicId) {
+            
+                const response = await fetch(`/viewComments/${comicId}`);
+                const comments = await response.json();
+                const commentsContainer = document.getElementById('commentsContainer');
+                
+                // Clear existing content
+                commentsContainer.innerHTML = '';
+        
+                // Check if comments exist
+                if (comments.length > 0) {
+                    comments.forEach(comment => {
+                        const commentElement = document.createElement('p');
+                        commentElement.textContent = comment.commentText || 'No comment text provided';
+                        commentsContainer.appendChild(commentElement);
+                    });
+                }
+            
+        }
+    </script>
+</body>
+</html>

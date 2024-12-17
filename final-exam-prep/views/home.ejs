@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- FlexBox CSS -->
+    <style>
+        
+        #imageContainer{
+            display: flex; 
+            justify-content: space-evenly;
+          }
+
+        
+          
+    </style>
+</head>
+<body>
+    <h1>Home</h1>
+
+    FlexBox Demo
+    <div id="imageContainer">
+
+        <div>
+          <div id="image1" class="img">
+            <!-- /* info 1 here  */ -->
+            <img src="img/river.jpg" alt="">
+          </div>
+        </div>
+    
+        <div>
+          <div id="image2" class="img">
+            <!-- /* info 2 here  */ -->
+            <img src="img/river.jpg" alt="">
+          </div>
+        </div>
+    
+        <div>
+          <div id="image3" class="img">
+           <!-- /* info 3 here  */ -->
+           <img src="img/river.jpg" alt="">
+          </div>
+        </div>
+    
+      </div>
+
+      <!-- Modal Code -->
+      <% for (const comic of comics) { %>     
+        <button onclick="displayComments( comic.comicId )">View Comment</button>      
+          <% } %>
+    
+     <!-- Modal -->
+            <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="commentInfo">  </div>
+                      <div id = "col1"> </div>
+                      <div id ="col2"> </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <script>
+                
+                    async function displayComments(comicId) {
+                      let url = '/api/comment/' + comicId;
+                      let response = await fetch(url);
+                      let data = await response.json();
+                      let authorInfo = document.querySelector("#commentInfo");
+          
+                      // Accumulate content in a string variable
+                      let content = "";
+                      for (let i = 0; i < data.length; i++) {
+                        content += `<h3> ${data[i].author}  </h3>` + "<br>";
+                        content += `<h6> ${data[i].email}  </h6>` + "<br>";
+                        content += `<h5> ${data[i].comment}  </h5>` + "<br>";
+                      }
+          
+                      // Set the accumulated content
+                      authorInfo.innerHTML = content;
+          
+                      const myModal = new bootstrap.Modal("#commentModal");
+                      myModal.show();
+                    }
+                  </script>
+          
+            
+</body>
+</html>

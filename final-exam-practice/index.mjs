@@ -29,7 +29,15 @@ app.get('/', async (req, res) => {
     //display random comic section
     let sql2 = `SELECT * FROM fe_comics ORDER BY RAND() LIMIT 1`
     const [randomComic] = await conn.query(sql2);
-   res.render('home.ejs', {rows})
+    console.log(randomComic)
+    res.render('home.ejs', {rows, randomComic})
+});
+
+// random comic button
+app.get('/api/randomComic', async (req, res) => {
+    let sql = `SELECT * FROM fe_comics ORDER BY RAND() LIMIT 1`;
+    const [randomComic] = await conn.query(sql);
+    res.json(randomComic[0]);
 });
 
 //addComic
@@ -38,18 +46,44 @@ app.get('/addComic', async (req, res) => {
     FROM fe_comic_sites`;
     const [rows] = await conn.query(sql);
     res.render('addComic.ejs', {rows})
- });
+});
 
- //comicPage
- app.get('/', (req, res) => {
-    res.render('home.ejs')
- });
+app.post('/addComic/new', async (req, res) => {
+    let title = req.body.title;
+    let url = req.body.url;
+    let date = req.body.date;
+    let website = req.body.website;
+    
+    let sql = `INSERT INTO fe_comics (comicTitle, comicUrl, comicDate, comicSiteId) VALUES (?, ?, ?, ?)`;
+    await conn.query(sql, [title, url, date, website]);
+    
+    let sql2 = `SELECT * FROM fe_comic_sites`;
+    const [rows] = await conn.query(sql2);
+    res.render('addComic.ejs', {rows, success: "Comic added successfully"});
+});
 
- //addComment
- app.get('/', (req, res) => {
-    res.render('home.ejs')
- });
+//comicPage
+app.get('/comicPage/:comicSiteId', async (req, res) => {
+    const conn = await pool.getConnection();
+    let comicSiteId = req.params.comicSiteId;
+    let sql = `SELECT * FROM fe_comics WHERE comicSiteId = ?`;
+    const [rows] = await conn.query(sql, [comicSiteId]);
+    res.render('comicPage.ejs', {rows});
+});
 
+app.get('/viewComments/1', async (req, res) => {
+    const conn = await pool.getConnection();
+    try {
+        let comicId = req.params.comicId;
+        let sql = `SELECT * FROM fe_comments WHERE comicId = ?`;
+        const [rows] = await conn.query(sql, [comicId]);
+        res.json(rows);
+    } finally {
+        conn.release();
+    }
+});
+
+//dbTest
 app.get("/dbTest", async(req, res) => {
     let sql = "SELECT CURDATE()";
     const [rows] = await conn.query(sql);
@@ -58,4 +92,4 @@ app.get("/dbTest", async(req, res) => {
 
 app.listen(3000, ()=>{
     console.log("Express server running")
-})
+});

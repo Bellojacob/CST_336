@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/head.ejs") %>
     <title>Home</title>
 </head>
-<body>
-    <h1>Home Page!</h1>
-    <% for (let i of rows) { %>
-        <h1><%= i.comicSiteName %></h1>
-        <br>
-        <a href="<%=i.comicSiteUrl%>" target="_blank"> <%=i.comicSiteUrl%></a>
-        <% } %>
+<body class="text-center">
+    <h1>My Favorite Comics</h1>
 
     <form action="/addComic">
         <button>Add Comic</button>
     </form>
+
+    <% for (let i of rows) { %>
+        <a href="/comicPage/<%= i.comicSiteId %>"><h1><%= i.comicSiteName %></h1></a>
+        <br>
+        <a href="<%=i.comicSiteUrl%>" target="_blank"> <%=i.comicSiteUrl%></a>
+        <% } %>
+
+    <h2 id="randomComicName"><%= randomComic[0].comicTitle %></h2>
+    <img src="<%= randomComic[0].comicUrl %>" alt="">
+
+    <form id="randomComicForm">
+        <button onclick="displayRandomComic()">Display Random Comic</button>
+    </form>
+
+    <script>
+        async function displayRandomComic(){
+            const response = await fetch('/api/randomComic');
+            const randomComic = await response.json();
+            document.getElementById('randomComicImage').src = randomComic.comicUrl;
+            document.getElementById('randomComicName').innerText = randomComic.comicName;
+        }
+    </script>
 </body>
 </html>
